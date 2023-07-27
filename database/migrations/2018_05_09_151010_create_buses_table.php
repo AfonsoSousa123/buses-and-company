@@ -16,7 +16,8 @@ class CreateBusesTable extends Migration
         Schema::create('buses', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->nullable()->unique();
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('state_id')->nullable();
             $table->string('licence_plate')->unique();
             $table->string('brand');
             $table->date('prod_year')->nullable();
@@ -34,6 +35,8 @@ class CreateBusesTable extends Migration
             $table->string('length_btw_axis')->nullable();
             $table->string('weight')->nullable();
             $table->text('description')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('state_id')->references('id')->on('states');
             $table->timestamps();
             $table->softDeletes();
         });
