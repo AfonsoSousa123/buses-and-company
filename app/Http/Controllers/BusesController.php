@@ -14,10 +14,9 @@ class BusesController extends Controller
      */
     public function index()
     {
-        $buses = Buses::latest('Ano_Producao')
-        ->paginate(5);
+        $buses = Buses::latest()->paginate(5);
 
-        return view('buses.Buses', compact('buses'));
+        return view('buses.buses-list', compact('buses'));
     }
 
     public function search()

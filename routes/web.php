@@ -21,10 +21,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
 /* Galery */
     Route::get('/galery',
@@ -35,7 +34,15 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::prefix('buses')->group(function () {
     Route::get('/',
         [BusesController::class, 'index']
-    )->name('buses');
+    )->name('buses-list');
+
+    Route::get('/history',
+        [BusesController::class, 'history']
+    )->name('buses-history');
+
+    Route::get('/trash',
+        [BusesController::class, 'trash']
+    )->name('buses-trash');
 
     Route::get('/create',
         [BusesController::class, 'create']

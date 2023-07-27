@@ -45,21 +45,16 @@ class PostsController extends Controller
 
     }
 
-    public function store()
+    public function store($request)
     {
         // Create a new post using the request data
+        $request->validate();
 
         $post = new Post;
-
-
         $post->title = request('title');
-
         $post->body = request('body');
-
         $post->user_id = auth()->id();
-
         // Save it to the database
-
         $post->save();
 
         // And then redirects to the home page

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
-use App\User;
 
 class UsersController extends Controller
 {
@@ -17,7 +16,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::oldest('id');
+        $users = User::all();
 
         return view('Users', compact('users'));
     }

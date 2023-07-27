@@ -1,3 +1,9 @@
+root {
+    --main-background-color: #103854;
+    --main-color: #2d8cd0;
+    --button-shadow: #014777;
+}
+
 * {
   -moz-appearance: none;
   -moz-border-radius: 0;
@@ -18,7 +24,7 @@
 
 a:link,
 a:visited {
-  
+
   text-decoration: none;
 }
 
@@ -31,10 +37,10 @@ a:active {
   outline: 0; }
 
 a:focus {
-  outline: thin dotted; 
+  outline: thin dotted;
 }
 h1, h2, h3, h4, h5, h6 {
-  font-size: 120%; 
+  font-size: 120%;
 }
 
 p {
@@ -67,7 +73,7 @@ body {
   -ms-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   background-color: #f8f8f8;
-  
+
   font-size: 100%; }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
@@ -104,10 +110,10 @@ section#content #preamble h1,section#content article h1 {
 
 section#content #preamble h2,section#content article h2 {
   color:#ff8e01;
-  padding-bottom:1em; 
+  padding-bottom:1em;
   font-weight: bold;
 }
-  
+
 section#content #preamble h3,section#content article h3 {
   color:#212328;
 }
@@ -135,7 +141,7 @@ section#content #preamble a:hover,section#content article a:hover {
   color:#0f64bf;
 }
 
-section#content #preamble.home h1 {color:#d3f8ff} 
+section#content #preamble.home h1 {color:#d3f8ff}
 
 section#content #our-work{zoom:1}
 
@@ -218,7 +224,7 @@ section#content #our-work ul li .overlay .loves {
 }
 
 section#content #our-work ul li .overlay .loves span {
-  background:transparent url(../images/pfd-sprites.png) no-repeat right -121px;
+  background:transparent url(../../images/pfd-sprites.png) no-repeat right -121px;
   color:#ed7b47;
   font:300 15px/1.4em sans-serif;
   line-height:80px;
@@ -247,7 +253,7 @@ section#content #pfd-work footer #other-projects li {
 }
 
 section#content #pfd-work footer #other-projects a {
-  background:#f8f8f8 url(../images/pfd-sprites.png) no-repeat;
+  background:#f8f8f8 url(../../images/pfd-sprites.png) no-repeat;
   display:block;
   height:30px;
   text-indent:-8000px;
@@ -294,9 +300,9 @@ section#content #work-bio #links {
   list-style:none;
   margin:40px 0;
 }
-        
+
 section#content #work-bio #links li {
-          
+
   float:left;
   margin-right:30px
 }
@@ -313,34 +319,34 @@ section#content #work-bio #links #ilovethis {
   text-align:center;
   width:60px;
 }
-        
+
 section#content #work-bio #links #ilovethis span {
-  background:transparent url(../images/pfd-sprites.png) no-repeat right -201px;
+  background:transparent url(../../images/pfd-sprites.png) no-repeat right -201px;
   color:#fff;
   line-height:60px;
   padding-right:25px;
 }
-        
+
 section#content #work-bio #links #ilovethis.unloved,section#content #work-bio #links #ilovethis:hover {
-  background:#212328 url(../images/pfd-sprites.png) no-repeat 10px -170px;
+  background:#212328 url(../../images/pfd-sprites.png) no-repeat 10px -170px;
 }
-        
+
 section#content #work-bio #links #ilovethis.unloved span,section#content #work-bio #links #ilovethis:hover span {
   display:none;
 }
-          
+
 section#content #work-bio #links #ilovethis.loved:hover {
   background-image:none;
 }
-        
+
 section#content #work-bio #links #ilovethis.loved:hover span {
   display:inline;
 }
-        
+
 section#content #work-bio #links #home {
   -moz-borderradius:30px;
   -webkit-borderradius:30px;
-  background:#3aa0e4 url(../images/pfd-sprites.png) no-repeat 30% -259px;
+  background:#3aa0e4 url(../../images/pfd-sprites.png) no-repeat 30% -259px;
   border-radius:30px;
   cursor:pointer;
   display:block;
@@ -352,7 +358,7 @@ section#content #work-bio #links #home {
 section#content #work-bio #links #home:hover {
   -moz-borderradius:30px;
   -webkit-borderradius:30px;
-  background:#0d598c url(../images/pfd-sprites.png) no-repeat 30% -259px;
+  background:#0d598c url(../../images/pfd-sprites.png) no-repeat 30% -259px;
   border-radius:30px;
   cursor:pointer;
   display:block;
@@ -360,7 +366,7 @@ section#content #work-bio #links #home:hover {
   text-indent:-8000px;
   width:60px
 }
-        
+
 section#content #work-visuals{
   float:right;
   width:45%;
@@ -390,18 +396,18 @@ section#content #preamble a.read-more{
 section#content #preamble a.read-more:hover{
   color:rgb(14, 127, 204)
 }
- 
+
 /*cabeçalho what we do*/
 section #what-we-do header  {
   padding:0 60px
-}   
+}
 
 section#content #what-we-do header #preamble{}
 
 section #what-we-do article {
-  padding:40px 60px; 
+  padding:40px 60px;
   padding-top: 20px;
-} 
+}
 
 section #what-we-do article h2 {
   color:#22bdfd;
@@ -481,7 +487,7 @@ nav#toc ul li a {
 }
 
 nav#toc ul li a:hover {
-  
+
   background-color: #555;
   color: white;
 }
@@ -547,15 +553,15 @@ section#content #what-we-do #web-design .parallax {
       background:#ededeb url(/images/web-development-med.jpg) no-repeat 50% 0!important;
       height:750px
 }section#content #what-we-do #identity article{padding: 40px 30px;}nav#toc ul{padding-top:30px}nav#toc a#toc-actuator{left:-64px;top:30px}}@media screen and (max-width:768px){section#content #work-bio{float:none;position:relative;width:auto}section#content #work-visuals{float:none;width:auto}section#content #pfd-work #links{display:none}section#content #what-we-do section{height:auto!important}section#content #what-we-do section article{padding:60px 30px}section#content #what-we-do #web-design .parallax{background:#ededeb url(/images/web-development-sm.jpg) no-repeat 50% 0!important;
-            
+
   height:460px}section#content #what-we-do #identity{border-bottom:none}section#content #what-we-do #identity article{padding:60px 30px}section#content #pfd-about #example-photographs li,section#content #what-we-do #photography #example-photographs li{width:100%!important}section#content p.em{font:300 15px/1.4em museo-sans,sans-serif!important}}@media screen and (max-width:460px){section#content{padding-bottom:234px}section#content #what-we-do #photography #example-photographs li{min-height:50px}footer#msf .wrapper{padding:20px 0}footer#msf ul#lets-be-social{float:none;width:auto;zoom:1}footer#msf ul#lets-be-social:after,footer#msf ul#lets-be-social:before{content:' ';
-            
+
   display:table}footer#msf ul#lets-be-social:after{clear:both}footer#msf div#legal{float:none;width:auto}footer#msf div#legal span{display:block;padding-left:0;text-align:left}footer#msf li a,footer#msf span{line-height:2em}}
 
 #textarea {
 
   height: 35%;
-  
+
 }
 
 #show_u {
@@ -581,7 +587,7 @@ section#content #what-we-do #web-design .parallax {
   color: #68ACD6;
   font-weight: bold;
 }
- 
+
 .comment-box {
 
   width: 815px;
@@ -621,11 +627,11 @@ section#content #what-we-do #web-design .parallax {
 
     align-self: right;
     width: 110px;
-    height: 40px; 
+    height: 40px;
     font-size: 14px;
     color: #fff;
     background-color: #015288;
-    box-shadow: 0 5px 0 0 #014777;
+    box-shadow: 0 5px 0 0 var(--button-shadow);
     border: none;
     padding: 10px;
     display: inline-block;
@@ -715,7 +721,7 @@ section#content #what-we-do #web-design .parallax {
   color: #fff;
   background-color: #55acee;
   box-shadow: 0 5px 0 0 #3C93D5;
-  border: none; 
+  border: none;
   display: inline-block;
   position: relative;
   outline: none;
@@ -729,7 +735,7 @@ section#content #what-we-do #web-design .parallax {
   box-shadow: 0 1px 0 0 #3C93D5;
   -webkit-transform: translate(0,5px);
   -moz-transform: translate(0,5px);
-  transform: translate(0,5px);  
+  transform: translate(0,5px);
 }
 
 #button1 {
@@ -739,22 +745,19 @@ section#content #what-we-do #web-design .parallax {
   font-size: 25px;
   color: #fff;
   background-color: #55acee;
-  box-shadow: 0 5px 0 0 #3C93D5;
+  box-shadow: 0 5px 0 0 var(--button-shadow);
   border: none;
   display: inline-block;
   position: relative;
   outline: none;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-radius: 10px;
 }
 
 #button1:active {
   box-shadow: 0 1px 0 0 #3C93D5;
   -webkit-transform: translate(0,5px);
   -moz-transform: translate(0,5px);
-  transform: translate(0,5px);  
+  transform: translate(0,5px);
 }
 
 #registo {
@@ -788,7 +791,7 @@ section#content #what-we-do #web-design .parallax {
 
   float: right;
   width: 110px;
-  height: 40px; 
+  height: 40px;
   font-size: 14px;
   color: #fff;
   background-color: #0d5486;
@@ -821,7 +824,7 @@ section#content #what-we-do #web-design .parallax {
 
   float: right;
   width: 150px;
-  height: 40px; 
+  height: 40px;
   font-size: 14px;
   color: #fff;
   background-color: #0d5486;
