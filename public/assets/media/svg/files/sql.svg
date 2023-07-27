@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="pdf" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="62px" height="62px" viewBox="0 0 62 62" enable-background="new 0 0 62 62" xml:space="preserve">
+<rect fill="none" width="62" height="62"/>
+<polygon fill="#D8D9DA" stroke="#D8D9DA" stroke-width="5.5111" stroke-linecap="round" stroke-linejoin="round" points="
+	55.8,58.556 14.467,58.556 14.467,3.444 38.087,3.444 55.8,21.158 "/>
+<g>
+	<g>
+		<path fill="#73149D" d="M43.4,48.912c0,1.516-1.24,2.755-2.756,2.755H4.822c-1.516,0-2.756-1.24-2.756-2.755V35.134
+			c0-1.516,1.24-2.755,2.756-2.755h35.822c1.516,0,2.756,1.24,2.756,2.755V48.912z"/>
+	</g>
+	<g>
+		<text transform="matrix(1 0 0 1 7.7461 47.2529)" fill="#FFFFFF" font-family="'Verdana'" font-weight="bold" font-size="14.4">SQL</text>
+	</g>
+</g>
+<polygon fill="#9B9C9E" stroke="#9B9C9E" stroke-width="5.5111" stroke-linecap="round" stroke-linejoin="round" points="
+	55.8,21.158 38.087,21.158 38.087,3.444 "/>
+</svg>
