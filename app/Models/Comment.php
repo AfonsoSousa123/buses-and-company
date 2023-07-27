@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 class Comment extends Model
 {
-    
+
     public function post()
     {
 

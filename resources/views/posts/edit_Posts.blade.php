@@ -2,17 +2,15 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   @extends('layouts.app')
 
-@section('content') 
-  
+@section('content')
+
   <div class="container">
 
     <h2>Editar um Post</h2>
 
       <form method="POST" action="{{ route('posts-update', ['post' => $post->id])}}">
+          @csrf
 
-            {{ csrf_field() }}
-            {{ method_field('PUT') }}
-            
             <div class="form-group">
 
               <label for="title">Titulo</label>
@@ -33,18 +31,18 @@
             <div class="form-group">
 
               <a href="{{ route('posts')}}" id="submit" class="btn btn-primary">
-                    
+
                 Cancelar
 
               </a>
               <input type="reset" id="submit" class="btn btn-primary" value="Limpar">
               <input type="submit" id="submit" class="btn btn-primary" value="Editar" onclick="return confirm('Deseja realmente alterar o Post ?');">
-              
+
             </div>
 
-            @include('layouts.errors')  
+            @include('layouts.errors')
 
       </form>
   </div>
-  
-@endsection 
+
+@endsection

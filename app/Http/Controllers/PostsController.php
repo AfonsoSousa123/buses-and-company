@@ -3,16 +3,15 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Post;
 use Illuminate\Http\Request;
-
-use App\Post;
 
 class PostsController extends Controller
 {
-    
+
     public function index()
     {
-    
+
         $posts = Post::latest()
         ->paginate(5);
 
@@ -25,7 +24,7 @@ class PostsController extends Controller
         $q = request('q');
         if($q != "") {
             $posts = Post::where("title", 'LIKE', '%' .$q. '%')->get();
-            
+
             if(count($posts) > 0) {
                 return view('posts.Posts', compact('posts'))->withDetails($posts)->withQuery($q);
             }else{
@@ -72,7 +71,7 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        
+
         return view('posts.edit_Posts')->withPost($post);
 
     }
@@ -103,6 +102,6 @@ class PostsController extends Controller
         $del->delete();
 
         return back()->withMessage("Post eliminado com sucesso!");
-        
+
     }
 }

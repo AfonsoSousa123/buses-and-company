@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buses;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-
-use App\Buses;
 
 class BusesController extends Controller
 {
@@ -31,7 +29,7 @@ class BusesController extends Controller
             ->orwhere("Modelo", 'LIKE', '%' .$b. '%')
             ->orwhere("Empresa", 'LIKE', '%' .$b. '%')
             ->get();
-            
+
             if(count($buses) > 0)
                 return view('buses.Buses', compact('buses'))->withDetails($buses)->withQuery($b);
 
@@ -61,7 +59,7 @@ class BusesController extends Controller
         // Create a new bus using the request data
 
         $bus = new Buses;
-        
+
 
         $bus->user_id = auth()->id();
         $bus->Matricula = request('Matricula');
@@ -82,7 +80,7 @@ class BusesController extends Controller
         $bus->Dist_entre_eixos = request('Dist_entre_eixos');
         $bus->Peso_bruto = request('Peso_bruto');
         $bus->Descricao = request('Descricao');
-        
+
         // Save it to the database
 
         $bus->save();
@@ -113,7 +111,7 @@ class BusesController extends Controller
     public function edit($id)
     {
         $bus = Buses::find($id);
-        
+
         return view('buses.edit_Buses')->withBuses($bus);
     }
 
@@ -146,7 +144,7 @@ class BusesController extends Controller
         $buses->Dist_entre_eixos = request('Dist_entre_eixos');
         $buses->Peso_bruto = request('Peso_bruto');
         $buses->Descricao = request('Descricao');
-        
+
         // Save it to the database
 
         $buses->save();

@@ -1,13 +1,19 @@
 <?php
 
+use App\Http\Controllers\BusesController;
+use App\Http\Controllers\GaleryController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
 |
 */
 
@@ -18,67 +24,46 @@ Route::get('/', function () {
 
 Auth::routes();
 
-/* Main Page */
-Route::get('/home', 'HomeController@index')->name('home');
-
-/* Users */ 
-Route::prefix('admin')->group(function () {
-    Route::get('/login/maintenance', [
-        'as' => 'maintenance',
-        'uses' => 'AdminController@index'
-    ]);
-    Route::get('/login', [
-        'as' => 'admin.login',
-        'uses' => 'Auth\AdminLoginController@showLoginForm'
-    ]);
-    Route::post('/login', [
-        'as' => 'admin.login.submit',
-        'uses' => 'Auth\AdminLoginController@login'
-    ]);
-    Route::get('/{user}', [
-        'as' => 'users-delete',
-        'uses' => 'AdminController@destroy'
-    ]);
-});
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 /* Galery */
-Route::get('/galery', 'GaleryController@index');
-
+    Route::get('/galery',
+        [GaleryController::class, 'index']
+    )->name('galery');
 
 /* Buses */
 Route::prefix('buses')->group(function () {
-    Route::get('/', [
-        'as' => 'buses',
-        'uses' => 'BusesController@index'
-    ]);
-    Route::get('/create', [
-        'as' => 'buses-create',
-        'uses' => 'BusesController@create'
-    ]);
-    Route::post('/store', [
-        'as' => 'buses-store',
-        'uses' => 'BusesController@store'
-    ]);
-    Route::get('/edit/{bus}', [
-        'as' => 'buses-edit',
-        'uses' => 'BusesController@edit'
-    ]);
-    Route::put('/update/{bus}', [
-        'as' => 'buses-update',
-        'uses' => 'BusesController@update'
-    ]);
-    Route::post('/search', [
-        'as' => 'buses-search',
-        'uses' => 'BusesController@search'
-    ]);
-    Route::get('/delete/{bus}', [
-        'as' => 'buses-delete',
-        'uses' => 'BusesController@destroy'
-    ]);
-    Route::get('/{bus}', [
-        'as' => 'buses-show',
-        'uses' => 'BusesController@show'
-    ]);
+    Route::get('/',
+        [BusesController::class, 'index']
+    )->name('buses');
+
+    Route::get('/create',
+        [BusesController::class, 'create']
+    )->name('buses-create');
+
+    Route::post('/store',
+        [BusesController::class, 'store']
+    )->name('buses-store');
+
+    Route::get('/edit/{bus}',
+        [BusesController::class, 'edit']
+    )->name('buses-edit');
+
+    Route::put('/update/{bus}',
+        [BusesController::class, 'update']
+    )->name('buses-update');
+
+    Route::get('/search',
+        [BusesController::class, 'search']
+    )->name('buses-search');
+
+    Route::delete('/delete/{bus}',
+        [BusesController::class, 'destroy']
+    )->name('buses-delete');
+
+    Route::get('/{bus}',
+        [BusesController::class, 'show']
+    )->name('buses-show');
 });
 
 
@@ -127,4 +112,3 @@ Route::prefix('posts')->group(function () {
         'uses' => 'CommentsController@destroy'
     ]);
 });
-/**/
