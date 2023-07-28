@@ -6,7 +6,7 @@
 
     <div class="max-w-7xl mx-auto p-6 lg:p-8">
         <div class="flex justify-center">
-            This is the Main Page
+            This is the Dashboard
 
             <!--begin::Overlay-->
             <a class="d-block overlay" data-fslightbox="lightbox-basic" href="assets/media/stock/900x600/23.jpg">
@@ -26,5 +26,9 @@
 
         </div>
     </div>
+@endsection
+
+@section('footer_assets')
+    <script src="{{ asset('assets/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
 @endsection
 

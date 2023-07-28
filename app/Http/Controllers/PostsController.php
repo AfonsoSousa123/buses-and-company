@@ -15,7 +15,7 @@ class PostsController extends Controller
         $posts = Post::latest()
         ->paginate(5);
 
-        return view('posts.Posts', compact('posts'));
+        return view('posts.posts-feed', compact('posts'));
 
     }
 

@@ -14,6 +14,15 @@ class BusStoreRequest extends FormRequest
         return false;
     }
 
+    public function atributes(): array
+    {
+        return [
+            'licence_plate' => 'Licence Plate',
+            'brand' => 'bus description',
+            'company' => 'bus description',
+        ];
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -22,7 +31,9 @@ class BusStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'event_name' => 'required|min:3|max:150',
+            'image' => ['image', 'file', 'mimes:jpeg,jpg', 'max:'.config('app.image_max_size_kb'), 'required_without:event_images'],
+            'event_images' => 'array|required_without:image',
         ];
     }
 }

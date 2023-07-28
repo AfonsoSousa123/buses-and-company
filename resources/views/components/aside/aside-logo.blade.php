@@ -1,5 +1,5 @@
 <!--begin::Logo-->
-<a href="{{ route('dashboard') }}">
+<a href="/">
     <img alt="Logo" src="{{ asset('assets/media/logos/BUS-COMPANY-LOGO.png') }}" class="w-200px logo" />
 </a>
 <!--end::Logo-->

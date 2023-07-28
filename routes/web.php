@@ -3,6 +3,7 @@
 use App\Http\Controllers\BusesController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -75,47 +76,54 @@ Route::prefix('buses')->group(function () {
 
 
 /* Posts */
-Route::prefix('posts')->group(function () {
-    Route::get('/', [
-        'as' => 'posts',
-        'uses' => 'PostsController@index'
-    ]);
-    Route::get('/create', [
-        'as' => 'posts-create',
-        'uses' => 'PostsController@create'
-    ]);
-    Route::post('/store', [
-        'as' => 'posts-store',
-        'uses' => 'PostsController@store'
-    ]);
-    Route::get('/edit/{post}', [
-        'as' => 'posts-edit',
-        'uses' => 'PostsController@edit'
-    ]);
-    Route::put('/update/{post}', [
-        'as' => 'posts-update',
-        'uses' => 'PostsController@update'
-    ]);
-    Route::post('/search', [
-        'as' => 'posts-search',
-        'uses' => 'PostsController@postSearch'
-    ]);
-    Route::get('/delete/{post}', [
-        'as' => 'posts-delete',
-        'uses' => 'PostsController@destroy'
-    ]);
-    Route::get('/{post}', [
-        'as' => 'posts-show',
-        'uses' => 'PostsController@show'
-    ]);
+Route::prefix('feed')->group(function () {
+    Route::get('/',
+        [PostsController::class, 'index']
+    )->name('posts-feed');
 
-    //Comments
-    Route::post('/{post}', [
-        'as' => 'comment-store',
-        'uses' => 'CommentsController@store'
-    ]);
-    Route::get('/{post}/{comment}', [
-        'as' => 'comment-delete',
-        'uses' => 'CommentsController@destroy'
-    ]);
+    Route::get('/search',
+        [PostsController::class, 'search']
+    )->name('posts-search');
+
+    Route::get('/{post}',
+        [PostsController::class, 'show']
+    )->name('posts-show');
+
+    Route::get('/create',
+        [PostsController::class, 'create']
+    )->name('posts-create');
+
+    Route::post('/store',
+        [PostsController::class, 'store']
+    )->name('posts-store');
+
+    Route::get('/edit/{post}',
+        [PostsController::class, 'edit']
+    )->name('posts-edit');
+
+    Route::put('/update/{post}',
+        [PostsController::class, 'update']
+    )->name('posts-update');
+
+    Route::delete('/{post}',
+        [PostsController::class, 'destroy']
+    )->name('posts-delete');
+
+    Route::get('/trash',
+        [PostsController::class, 'trash']
+    )->name('posts-trash');
+
+    Route::post('/{post}',
+        [PostsController::class, 'restore']
+    )->name('posts-restore');
+
+//    //Comments
+//    Route::post('/{post}', [
+//        'as' => 'comment-store',
+//        'uses' => 'CommentsController@store'
+//    ]);
+//    Route::get('/{post}/{comment}', [
+//        'as' => 'comment-delete',
+//        'uses' => 'CommentsController@destroy'
+//    ]);
 });
