@@ -1,4 +1,4 @@
-<head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -18,7 +18,8 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <!-- CSS -->
+    @yield('header_assets')
     <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet" media="screen, print" type="text/css">
     <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet">
-</head>
+

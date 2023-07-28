@@ -1,16 +1,18 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<!-- Preloader -->
-<div class="preloader d-flex align-items-center justify-content-center">
-    <div class="spinner">
-        <div class="bounce1"></div>
-        <div class="bounce2"></div>
-        <div class="bounce3"></div>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
     </div>
-</div>
 
     <!--begin::Head-->
-    @include('layouts.partials.header')
+    <head>
+        @include('layouts.partials.header')
+    </head>
     <!--end::Head-->
     <!--begin::Body-->
 
