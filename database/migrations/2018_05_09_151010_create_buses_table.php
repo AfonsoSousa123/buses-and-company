@@ -18,10 +18,10 @@ class CreateBusesTable extends Migration
             $table->uuid('uuid')->nullable()->unique();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('state_id')->nullable();
-            $table->string('licence_plate')->unique();
-            $table->string('brand');
+            $table->unsignedBigInteger('company_id')->nullable();
+            $table->unsignedBigInteger('brand_id')->nullable();
+            $table->string('licence_plate')->unique()->nullable();
             $table->date('prod_year')->nullable();
-            $table->string('enterprise')->nullable();
             $table->string('model')->nullable();
             $table->string('engine')->nullable();
             $table->string('engine_num')->nullable();
@@ -37,6 +37,8 @@ class CreateBusesTable extends Migration
             $table->text('description')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('state_id')->references('id')->on('states');
+            $table->foreign('company_id')->references('id')->on('companies');
+            $table->foreign('brand_id')->references('id')->on('brands');
             $table->timestamps();
             $table->softDeletes();
         });
