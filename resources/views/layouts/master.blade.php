@@ -2,14 +2,14 @@
 
 @section('body')
     <!--begin::Body-->
-    <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed toolbar-tablet-and-mobile-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+    <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed toolbar-tablet-and-mobile-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px;background-image: url({{ asset('assets/media/patterns/bus-wallpaper.jpg') }} )" data-kt-aside-minimize="on">
     <!--begin::Main-->
     <!--begin::Root-->
     <div class="d-flex flex-column flex-root">
         <!--begin::Page-->
         <div class="page d-flex flex-row flex-column-fluid">
             <!--begin::Aside-->
-            <div id="kt_aside" class="aside aside-dark aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
+            <div id="kt_aside" class="aside aside-dark aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: false, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
                 <!--begin::Brand-->
                 <div class="aside-logo flex-column-auto h-90px" id="kt_aside_logo">
                     <!--begin::Logo-->
@@ -34,21 +34,21 @@
                 <!--begin::Header-->
                 <div id="kt_header" style="" class="header align-items-stretch">
                     <!--begin::Container-->
-                    @include('components.wrapper.wrapper-header')
+                    @include('layouts.partials.header-alt')
                     <!--end::Container-->
                 </div>
                 <!--end::Header-->
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-                    <!--begin::Toolbar-->
-                    <div class="toolbar" id="kt_toolbar">
-                        <!--begin::Container-->
-                        <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
-                            @yield('toolbar')
-                        </div>
-                        <!--end::Container-->
-                    </div>
-                    <!--end::Toolbar-->
+{{--                    <!--begin::Toolbar-->--}}
+{{--                    <div class="toolbar" id="kt_toolbar">--}}
+{{--                        <!--begin::Container-->--}}
+{{--                        <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">--}}
+{{--                            @yield('toolbar')--}}
+{{--                        </div>--}}
+{{--                        <!--end::Container-->--}}
+{{--                    </div>--}}
+{{--                    <!--end::Toolbar-->--}}
                     <!--begin::Post-->
                     <div class="post d-flex flex-column-fluid" id="kt_post">
                         <!--begin::Container-->

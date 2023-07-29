@@ -22,7 +22,7 @@
                                 <label for="name" class="form-label fs-6 fw-bolder text-dark">{{ __('Name') }}</label>
                             </div>
                             <!--begin::Input-->
-                            <input id="name" class="form-control form-control-lg form-control-solid @error('name') is-invalid @enderror" type="text" value="{{ old('name') }}" name="email" autocomplete="email" required/>
+                            <input id="name" class="form-control form-control-lg form-control-solid @error('name') is-invalid @enderror" type="text" value="{{ old('name') }}" name="name" autocomplete="email" required/>
                             @error ('name')
                                 <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>
                             @enderror

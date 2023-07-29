@@ -13,7 +13,16 @@ return new class extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->nullable()->unique();
+            $table->string('name');
+            $table->string('owner');
+            $table->date('begin_year');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('state_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('state_id')->references('id')->on('states');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

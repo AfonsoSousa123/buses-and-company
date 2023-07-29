@@ -46,10 +46,24 @@ class BusStoreRequest extends FormRequest
     {
         return [
             'licence_plate' => 'required|min:3|max:150',
-            'brand' => 'required',
-            'company' => 'required',
-            'image' => ['image', 'file', 'mimes:jpeg,jpg', 'max:'.config('app.image_max_size_kb'), 'required_without:event_images'],
-            'event_images' => 'array|required_without:image',
+            'brand' => 'required|min:3|max:150',
+            'company' => 'required|min:3|max:150',
+            'model' => 'required|min:3|max:150',
+            'prod_year' => 'required|year',
+            'engine' => 'required|min:3|max:150',
+            'engine_num' => 'required|min:3|max:150',
+            'fuel' => 'min:3|max:150',
+            'chassis' => 'min:3|max:150',
+            'chassis_num' => 'min:3|max:150',
+            'capacity' => 'min:3|max:150',
+            'width' => 'min:3|max:150',
+            'height' => 'min:3|max:150',
+            'length_btw_axis' => 'min:3|max:150',
+            'weight' => 'min:3|max:150',
+            'description' => 'min:3|max:150',
+            'body_work' => 'min:3|max:150',
+//            'image' => ['image', 'file', 'mimes:jpeg,jpg', 'max:'.config('app.image_max_size_kb'), 'required_without:event_images'],
+//            'event_images' => 'array|required_without:image',
         ];
     }
 }

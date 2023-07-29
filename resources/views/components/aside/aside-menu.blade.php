@@ -3,7 +3,7 @@
     <!--begin::Menu-->
     <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
         <div class="menu-item">
-            <a class="menu-link {{ (request()->is('/')) || (request()->is('/home')) ? 'active' : '' }}" href="{{ route('dashboard') }}">
+            <a class="menu-link {{ (request()->is('/')) || (request()->is('dashboard')) ? 'active' : '' }}" href="{{ route('dashboard') }}">
                 <span class="menu-icon">
                     <!--begin::Svg Icon | path: icons/duotone/Design/PenAndRuller.svg-->
                     <span class="svg-icon svg-icon-2 fs-4">
@@ -23,13 +23,12 @@
                 <div class="separator mx-1"></div>
             </div>
         </div>
-
-            <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ (request()->is('/buses*')) ? 'hover show' : '' }}">
+            <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ (request()->is('buses')) ? 'hover show' : '' }}">
                 <span class="menu-link">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotone/Interface/Lock.svg-->
                         <span class="svg-icon svg-icon-2">
-                            <i class="fas fa-calendar-alt fs-4"></i>
+                            <i class="fa-solid fa-bus fs-4"></i>
                         </span>
                         <!--end::Svg Icon-->
                     </span>
@@ -38,106 +37,71 @@
                 </span>
                 <div class="menu-sub menu-sub-accordion menu-active-bg">
                     <div class="menu-item">
-                        <a class="menu-link {{ (request()->is('backoffice/events/list*')) || (request()->is('backoffice/event-management/*/*')) || (request()->is('backoffice/events/search*')) ? 'active' : '' }}" href="{{ route('buses-list') }}">
+                        <a class="menu-link {{ (request()->is('buses')) || (request()->is('buses/search')) ? 'active' : '' }}" href="{{ route('buses-list') }}">
                             <span class="menu-icon">
                                 <i class="fas fa-th-list fs-4"></i>
                             </span>
                             <span class="menu-title">Lista</span>
                         </a>
                     </div>
-{{--                    @permission('manage-default-events')--}}
-{{--                    <div class="menu-item">--}}
-{{--                        <a class="menu-link {{ (request()->is('backoffice/default-event-management/*')) || (request()->is('backoffice/default-event-management/*/*'))  ? 'active' : '' }}" href="{{ route('default-event-list') }}">--}}
-{{--                            <span class="menu-icon">--}}
-{{--                                <i class="fas fa-calendar-day fs-4"></i>--}}
-{{--                            </span>--}}
-{{--                            <span class="menu-title">Pré Definidos</span>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    @endpermission--}}
-{{--                    @permission('manage-events')--}}
-                        <div class="menu-item">
-                            <a class="menu-link" href="{{ route('buses-history') }}">
-                                <span class="menu-icon">
-                                    <i class="fas fa-history fs-4"></i>
-                                </span>
-                                <span class="menu-title">Histórico</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ (request()->is('backoffice/event-management/trash')) ? 'active' : '' }}" href="{{ route('buses-trash') }}">
-                                <span class="menu-icon">
-                                    <i class="far fa-trash-alt fs-4"></i>
-                                </span>
-                                <span class="menu-title">Reciclagem</span>
-                            </a>
-                        </div>
-{{--                    @endpermission--}}
+                    <div class="menu-item">
+                        <a class="menu-link" href="{{ route('buses-history') }}">
+                            <span class="menu-icon">
+                                <i class="fas fa-history fs-4"></i>
+                            </span>
+                            <span class="menu-title">Histórico</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link {{ (request()->is('backoffice/event-management/trash')) ? 'active' : '' }}" href="{{ route('buses-trash') }}">
+                            <span class="menu-icon">
+                                <i class="far fa-trash-alt fs-4"></i>
+                            </span>
+                            <span class="menu-title">Reciclagem</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 {{--        @endpermission--}}
+{{--        @permission('view-images')--}}
         <div class="menu-item">
             <div class="menu-content">
                 <div class="separator mx-1"></div>
             </div>
         </div>
-
-{{--        <div class="menu-item">--}}
-{{--            <a class="menu-link {{ (request()->is('backoffice/modelos/list*')) || (request()->is('backoffice/modelo-management/*/*')) || (request()->is('backoffice/modelos/search*'))  ? 'active' : '' }}" href="{{ route('modelo-list') }}">--}}
-{{--                <span class="menu-icon">--}}
-{{--                    <!--begin::Svg Icon | path: assets/media/icons/duotune/art/art006.svg-->--}}
-{{--                    <span class="svg-icon svg-icon-2 fs-4">--}}
-{{--                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">--}}
-{{--                            <path opacity="0.3" d="M22 19V17C22 16.4 21.6 16 21 16H8V3C8 2.4 7.6 2 7 2H5C4.4 2 4 2.4 4 3V19C4 19.6 4.4 20 5 20H21C21.6 20 22 19.6 22 19Z" fill="black"/>--}}
-{{--                            <path d="M20 5V21C20 21.6 19.6 22 19 22H17C16.4 22 16 21.6 16 21V8H8V4H19C19.6 4 20 4.4 20 5ZM3 8H4V4H3C2.4 4 2 4.4 2 5V7C2 7.6 2.4 8 3 8Z" fill="black"/>--}}
-{{--                        </svg>--}}
-{{--                    </span>--}}
-{{--                    <!--end::Svg Icon-->--}}
-{{--                </span>--}}
-{{--                <span class="menu-title">Modelos</span>--}}
-{{--            </a>--}}
-{{--        </div>--}}
-{{--        @endpermission--}}
-
-{{--        @permission('view-images')--}}
-{{--        <div class="menu-item">--}}
-{{--            <div class="menu-content">--}}
-{{--                <div class="separator mx-1"></div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--            <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ (request()->is('backoffice/images*')) || (request()->is('backoffice/image-management*')) ? 'hover show' : '' }}">--}}
-{{--                <span class="menu-link">--}}
-{{--                    <span class="menu-icon">--}}
-{{--                        <!--begin::Svg Icon | path: assets/media/icons/duotune/general/gen006.svg-->--}}
-{{--                        <span class="svg-icon svg-icon-muted svg-icon-2hx">--}}
-{{--                           <i class="fas fa-image fs-4"></i>--}}
-{{--                        </span>--}}
-{{--                        <!--end::Svg Icon-->--}}
-{{--                    </span>--}}
-{{--                    <span class="menu-title">Galeria</span>--}}
-{{--                    <span class="menu-arrow"></span>--}}
-{{--                </span>--}}
-{{--                <div class="menu-sub menu-sub-accordion menu-active-bg">--}}
-{{--                    <div class="menu-item">--}}
-{{--                        <a class="menu-link {{ (request()->is('backoffice/images/list*')) || (request()->is('backoffice/image-management/*/*')) ? 'active' : '' }}" href="{{ route('image-list') }}">--}}
-{{--                            <span class="menu-icon">--}}
-{{--                                <i class="fas fa-th-list fs-4"></i>--}}
-{{--                            </span>--}}
-{{--                            <span class="menu-title">Listagem</span>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
+            <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ (request()->is('images*')) || (request()->is('image-management*')) ? 'hover show' : '' }}">
+                <span class="menu-link">
+                    <span class="menu-icon">
+                        <!--begin::Svg Icon | path: assets/media/icons/duotune/general/gen006.svg-->
+                        <span class="svg-icon svg-icon-muted svg-icon-2hx">
+                           <i class="fas fa-image fs-4"></i>
+                        </span>
+                        <!--end::Svg Icon-->
+                    </span>
+                    <span class="menu-title">{{ __('Galery') }}</span>
+                    <span class="menu-arrow"></span>
+                </span>
+                <div class="menu-sub menu-sub-accordion menu-active-bg">
+                    <div class="menu-item">
+                        <a class="menu-link {{ (request()->is('images/')) || (request()->is('image-management/*/*')) ? 'active' : '' }}" href="{{ route('image-list') }}">
+                            <span class="menu-icon">
+                                <i class="fas fa-th-list fs-4"></i>
+                            </span>
+                            <span class="menu-title">{{ __('List') }}</span>
+                        </a>
+                    </div>
 {{--                    @permission('manage-images')--}}
-{{--                        <div class="menu-item">--}}
-{{--                            <a class="menu-link {{ (request()->is('backoffice/image-management/history')) ? 'active' : '' }}" href="{{ route('image-history') }}">--}}
-{{--                                <span class="menu-icon">--}}
-{{--                                    <i class="fas fa-history fs-4"></i>--}}
-{{--                                </span>--}}
-{{--                                <span class="menu-title">Histórico</span>--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
+                        <div class="menu-item">
+                            <a class="menu-link {{ (request()->is('image-management/history')) ? 'active' : '' }}" href="{{ route('image-history') }}">
+                                <span class="menu-icon">
+                                    <i class="fas fa-history fs-4"></i>
+                                </span>
+                                <span class="menu-title">{{ __('History') }}</span>
+                            </a>
+                        </div>
 {{--                    @endpermission--}}
-{{--                </div>--}}
-{{--            </div>--}}
+                </div>
+            </div>
 {{--        @endpermission--}}
 
 {{--        @role('admin')--}}

@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('company_bus', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('company_id')->nullable();
+            $table->unsignedBigInteger('bus_id')->nullable();
+            $table->foreign('company_id')->references('id')->on('companies');
+            $table->foreign('bus_id')->references('id')->on('buses');
             $table->timestamps();
         });
     }

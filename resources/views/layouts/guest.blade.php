@@ -28,6 +28,11 @@
                     <!--end::Container-->
                 </div>
                 <!--end::Header-->
+                <!--begin::Aside menu-->
+                <div class="aside-menu flex-column-fluid">
+                    @include('components.aside.aside-menu')
+                </div>
+                <!--end::Aside menu-->
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 {{--                    <!--begin::Toolbar-->--}}

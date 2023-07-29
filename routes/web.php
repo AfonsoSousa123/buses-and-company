@@ -3,6 +3,7 @@
 use App\Http\Controllers\BusesController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -18,18 +19,54 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MainController::class, 'index'])->name('main');
 
 Auth::routes();
 
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
 /* Galery */
-    Route::get('/galery',
+Route::prefix('galery')->group(function () {
+    Route::get('/',
         [GaleryController::class, 'index']
     )->name('galery');
+
+    Route::get('/list',
+        [GaleryController::class, 'list']
+    )->name('image-list');
+
+    Route::get('/search',
+        [GaleryController::class, 'search']
+    )->name('image-search');
+
+    Route::get('/history',
+        [GaleryController::class, 'history']
+    )->name('image-history');
+
+    Route::get('/trash',
+        [GaleryController::class, 'trash']
+    )->name('image-trash');
+
+    Route::post('/store',
+        [GaleryController::class, 'store']
+    )->name('image-store');
+
+    Route::get('/edit/{image}',
+        [GaleryController::class, 'edit']
+    )->name('image-edit');
+
+    Route::put('/update/{image}',
+        [GaleryController::class, 'update']
+    )->name('image-update');
+
+    Route::delete('/delete/{image}',
+        [GaleryController::class, 'destroy']
+    )->name('image-delete');
+
+    Route::get('/{image}',
+        [GaleryController::class, 'show']
+    )->name('image-show');
+});
 
 /* Buses */
 Route::prefix('buses')->group(function () {
@@ -73,7 +110,6 @@ Route::prefix('buses')->group(function () {
         [BusesController::class, 'show']
     )->name('buses-show');
 });
-
 
 /* Posts */
 Route::prefix('feed')->group(function () {
