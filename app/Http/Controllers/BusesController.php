@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Buses;
+use App\Models\Bus;
 use Illuminate\Http\Request;
 
 class BusesController extends Controller
@@ -14,7 +14,7 @@ class BusesController extends Controller
      */
     public function index()
     {
-        $buses = Buses::latest()->paginate(15);
+        $buses = Bus::latest()->paginate(15);
 
         return view('buses.buses-list', compact('buses'));
     }
@@ -23,7 +23,7 @@ class BusesController extends Controller
     {
         $b = request('b');
         if($b != "") {
-            $buses = Buses::where("Matricula", 'LIKE', '%' .$b. '%')
+            $buses = Bus::where("Matricula", 'LIKE', '%' .$b. '%')
             ->orwhere("Marca", 'LIKE', '%' .$b. '%')
             ->orwhere("Modelo", 'LIKE', '%' .$b. '%')
             ->orwhere("Empresa", 'LIKE', '%' .$b. '%')
@@ -57,7 +57,7 @@ class BusesController extends Controller
     {
         // Create a new bus using the request data
 
-        $bus = new Buses;
+        $bus = new Bus;
 
 
         $bus->user_id = auth()->id();
@@ -86,7 +86,7 @@ class BusesController extends Controller
 
         // And then redirects to the home page
 
-        return redirect('/buses')->withMessage("Autocarro publicado com sucesso!");
+        return redirect('/buses')->withMessage(__('Bus successfully created!'));
 
     }
 
@@ -96,7 +96,7 @@ class BusesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Buses $bus)
+    public function show(Bus $bus)
     {
         return view('buses.show_Buses', compact('bus'));
     }
@@ -109,7 +109,7 @@ class BusesController extends Controller
      */
     public function edit($id)
     {
-        $bus = Buses::find($id);
+        $bus = Bus::findOrFail($id);
 
         return view('buses.edit_Buses')->withBuses($bus);
     }
@@ -123,7 +123,7 @@ class BusesController extends Controller
      */
     public function update(Request $request, $buses)
     {
-        $buses = Buses::find($buses);
+        $buses = Bus::find($buses);
         $buses->user_id = auth()->id();
         $buses->Matricula = request('Matricula');
         $buses->Marca = request('Marca');
@@ -148,7 +148,7 @@ class BusesController extends Controller
 
         $buses->save();
 
-        return redirect('/buses')->withMessage("Autocarro editado com sucesso!");
+        return redirect('/buses')->withMessage(__('Bus successfully updated!'));
     }
 
     /**
@@ -157,11 +157,11 @@ class BusesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Buses $bus)
+    public function destroy(Bus $bus)
     {
-        $del = Buses::findOrFail($bus->id);
+        $del = Bus::findOrFail($bus->id);
         $del->delete();
 
-        return back()->withMessage("Autocarro eliminado com sucesso!");
+        return back()->withMessage(__('Bus successfully deleted!'));
     }
 }

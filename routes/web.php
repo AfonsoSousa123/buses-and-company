@@ -23,10 +23,11 @@ Route::get('/', [MainController::class, 'index'])->name('main');
 
 Auth::routes();
 
-Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
-/* Galery */
-Route::prefix('galery')->group(function () {
+    /* Galery */
+    Route::prefix('galery')->group(function () {
     Route::get('/',
         [GaleryController::class, 'index']
     )->name('galery');
@@ -68,8 +69,8 @@ Route::prefix('galery')->group(function () {
     )->name('image-show');
 });
 
-/* Buses */
-Route::prefix('buses')->group(function () {
+    /* Buses */
+    Route::prefix('buses')->group(function () {
     Route::get('/',
         [BusesController::class, 'index']
     )->name('buses-list');
@@ -111,47 +112,47 @@ Route::prefix('buses')->group(function () {
     )->name('buses-show');
 });
 
-/* Posts */
-Route::prefix('feed')->group(function () {
-    Route::get('/',
-        [PostsController::class, 'index']
-    )->name('posts-feed');
+    /* Posts */
+    Route::prefix('feed')->group(function () {
+        Route::get('/',
+            [PostsController::class, 'index']
+        )->name('posts-feed');
 
-    Route::get('/search',
-        [PostsController::class, 'search']
-    )->name('posts-search');
+        Route::get('/search',
+            [PostsController::class, 'search']
+        )->name('posts-search');
 
-    Route::get('/{post}',
-        [PostsController::class, 'show']
-    )->name('posts-show');
+        Route::get('/{post}',
+            [PostsController::class, 'show']
+        )->name('posts-show');
 
-    Route::get('/create',
-        [PostsController::class, 'create']
-    )->name('posts-create');
+        Route::get('/create',
+            [PostsController::class, 'create']
+        )->name('posts-create');
 
-    Route::post('/store',
-        [PostsController::class, 'store']
-    )->name('posts-store');
+        Route::post('/store',
+            [PostsController::class, 'store']
+        )->name('posts-store');
 
-    Route::get('/edit/{post}',
-        [PostsController::class, 'edit']
-    )->name('posts-edit');
+        Route::get('/edit/{post}',
+            [PostsController::class, 'edit']
+        )->name('posts-edit');
 
-    Route::put('/update/{post}',
-        [PostsController::class, 'update']
-    )->name('posts-update');
+        Route::put('/update/{post}',
+            [PostsController::class, 'update']
+        )->name('posts-update');
 
-    Route::delete('/{post}',
-        [PostsController::class, 'destroy']
-    )->name('posts-delete');
+        Route::delete('/{post}',
+            [PostsController::class, 'destroy']
+        )->name('posts-delete');
 
-    Route::get('/trash',
-        [PostsController::class, 'trash']
-    )->name('posts-trash');
+        Route::get('/trash',
+            [PostsController::class, 'trash']
+        )->name('posts-trash');
 
-    Route::post('/{post}',
-        [PostsController::class, 'restore']
-    )->name('posts-restore');
+        Route::post('/{post}',
+            [PostsController::class, 'restore']
+        )->name('posts-restore');
 
 //    //Comments
 //    Route::post('/{post}', [
@@ -162,4 +163,5 @@ Route::prefix('feed')->group(function () {
 //        'as' => 'comment-delete',
 //        'uses' => 'CommentsController@destroy'
 //    ]);
+    });
 });

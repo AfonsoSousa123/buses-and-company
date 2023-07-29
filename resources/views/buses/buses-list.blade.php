@@ -63,26 +63,26 @@
     <div class="post d-flex flex-column-fluid" id="kt_post" data-select2-id="select2-data-kt_post">
         <!--begin::Container-->
         <div id="kt_content_container" class="container-xxl" data-select2-id="select2-data-kt_content_container">
-{{--            <!--begin::Search-->--}}
-{{--            <div class="card mb-7">--}}
-{{--                <!--begin::Card body-->--}}
-{{--                <form method="GET" action="{{ route('emprestimos-search') }}" id="emprestimos_search">--}}
-{{--                    <div class="card-header">--}}
-{{--                        <!--begin::Compact form-->--}}
-{{--                        <div class="card-title">--}}
-{{--                            <!--begin::Input group-->--}}
-{{--                            <div class="position-relative w-lg-550px w-md-450px w-sm-200px me-md-2">--}}
-{{--                                <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->--}}
-{{--                                <span class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">--}}
-{{--                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">--}}
-{{--                                        <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="black"></rect>--}}
-{{--                                        <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="black"></path>--}}
-{{--                                    </svg>--}}
-{{--                                </span>--}}
-{{--                                <!--end::Svg Icon-->--}}
-{{--                                <input type="text" class="form-control form-control-solid ps-10" name="field" placeholder="Pesquisa de Emprestimos...">--}}
-{{--                            </div>--}}
-{{--                            <!--end::Input group-->--}}
+            <!--begin::Search-->
+            <div class="card mb-7">
+                <!--begin::Card body-->
+                <form method="GET" action="{{ route('buses-search') }}" id="buses-search">
+                    <div class="card-header">
+                        <!--begin::Compact form-->
+                        <div class="card-title">
+                            <!--begin::Input group-->
+                            <div class="position-relative w-lg-550px w-md-450px w-sm-200px me-md-2">
+                                <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+                                <span class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="black"></rect>
+                                        <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="black"></path>
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
+                                <input type="text" class="form-control form-control-solid ps-10" name="field" placeholder="{{ __('Search Buses here...') }}">
+                            </div>
+                            <!--end::Input group-->
 {{--                            <!--begin:Action-->--}}
 {{--                            <div class="d-flex align-items-center justify-content-start me-md-2">--}}
 {{--                                <div class="flex-grow-1">--}}
@@ -104,28 +104,28 @@
 {{--                                </div>--}}
 {{--                            </div>--}}
 {{--                            <!--end:Action-->--}}
-{{--                            <!--begin:Action-->--}}
-{{--                            <div class="d-flex align-items-center justify-content-start">--}}
-{{--                                <button type="submit" class="btn btn-light-primary me-5">Pesquisa</button>--}}
-{{--                            </div>--}}
-{{--                            <!--end:Action-->--}}
-{{--                        </div>--}}
-{{--                        <div class="card-toolbar">--}}
-{{--                            <div class="d-flex align-items-center">--}}
-{{--                                <a id="kt_horizontal_search_advanced_link" class="btn btn-link collapsed" data-bs-toggle="collapse" href="#kt_advanced_search_form" aria-expanded="false">Pesquisa Avançada</a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <!--end::Compact form-->--}}
-{{--                    </div>--}}
-{{--                    <!--begin::Advance form-->--}}
-{{--                    <div class="collapse" id="kt_advanced_search_form" >--}}
-{{--                        <div class="card-body">--}}
-{{--                            <!--begin::Row-->--}}
-{{--                            <div class="row g-8 mb-8">--}}
-{{--                                <!--begin::Col-->--}}
-{{--                                <div class="col-xxl-12">--}}
-{{--                                    <!--begin::Row-->--}}
-{{--                                    <div class="row">--}}
+                            <!--begin:Action-->
+                            <div class="d-flex align-items-center justify-content-start">
+                                <button type="submit" class="btn btn-light-primary me-5">Pesquisa</button>
+                            </div>
+                            <!--end:Action-->
+                        </div>
+                        <div class="card-toolbar">
+                            <div class="d-flex align-items-center">
+                                <a id="kt_horizontal_search_advanced_link" class="btn btn-link collapsed" data-bs-toggle="collapse" href="#kt_advanced_search_form" aria-expanded="false">Pesquisa Avançada</a>
+                            </div>
+                        </div>
+                        <!--end::Compact form-->
+                    </div>
+                    <!--begin::Advance form-->
+                    <div class="collapse" id="kt_advanced_search_form" >
+                        <div class="card-body">
+                            <!--begin::Row-->
+                            <div class="row g-8 mb-8">
+                                <!--begin::Col-->
+                                <div class="col-xxl-12">
+                                    <!--begin::Row-->
+                                    <div class="row">
 {{--                                        <!--begin::Col-->--}}
 {{--                                        <div class="col-lg-2">--}}
 {{--                                            <label class="fs-6 form-label fw-bolder text-dark">Estado</label>--}}
@@ -170,7 +170,7 @@
 {{--                                            <!--end::Select-->--}}
 {{--                                        </div>--}}
 {{--                                        <!--end::Col-->--}}
-{{--                                        <!--begin::Col-->--}}
+                                        <!--begin::Col-->
 {{--                                        <div class="col-lg-4">--}}
 {{--                                            <label class="fs-6 form-label fw-bolder text-dark">Data</label>--}}
 
@@ -201,7 +201,7 @@
 {{--                                                <!--end::Select-->--}}
 {{--                                            </div>--}}
 {{--                                        </div>--}}
-{{--                                        <!--end::Col-->--}}
+                                        <!--end::Col-->
 {{--                                        <!--begin::Col-->--}}
 {{--                                        <div class="col-lg-4">--}}
 {{--                                            <div class="fv-row mb-9">--}}
@@ -234,19 +234,19 @@
 {{--                                            <!--end::State group-->--}}
 {{--                                        </div>--}}
 {{--                                        <!--end::Col-->--}}
-{{--                                    </div>--}}
-{{--                                    <!--end::Row-->--}}
-{{--                                </div>--}}
-{{--                                <!--end::Col-->--}}
-{{--                            </div>--}}
-{{--                            <!--end::Row-->--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <!--end::Advance form-->--}}
-{{--                </form>--}}
-{{--                <!--end::Card body-->--}}
-{{--            </div>--}}
-{{--            <!--end::Search-->--}}
+                                    </div>
+                                    <!--end::Row-->
+                                </div>
+                                <!--end::Col-->
+                            </div>
+                            <!--end::Row-->
+                        </div>
+                    </div>
+                    <!--end::Advance form-->
+                </form>
+                <!--end::Card body-->
+            </div>
+            <!--end::Search-->
             <!--begin::Toolbar-->
             <div class="justify-content-between flex-stack pb-7">
                 <div class="d-flex flex-wrap justify-content-lg-between flex-stack" data-select2-id="select2-data-81-spz0">
@@ -273,7 +273,7 @@
                         <div class="d-flex my-0">
                             <div class="d-flex flex-wrap align-items-center my-1">
                                 <div class="badge badge-lg badge-primary">
-                                    {{ $buses->count() }} {{ __('off') }} {{ $buses->total() }} {{ __('Buses') }}
+                                    {{ $buses->count() }} {{ __('of') }} {{ $buses->total() }} {{ __('Buses') }}
                                 </div>
                             </div>
                         </div>
@@ -327,8 +327,8 @@
                                         </td>
                                         <!--end::Description-->
                                         <!--begin::State-->
-                                        <td class="sorting_1 text-start">
-                                            {{ $bus->prod_year == null ? $bus->prod_year : '' }}
+                                        <td data-order="20-12-2021T00:00:00+00:00" class="sorting_1 text-start">
+                                            {{ $bus->prod_year == null ? '' : Str::toDate($bus->prod_year) }} }}
                                         </td>
                                         <!--end::State-->
                                         <!--begin::Service-->

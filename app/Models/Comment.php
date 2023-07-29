@@ -2,20 +2,20 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 class Comment extends Model
 {
+    use SoftDeletes, HasFactory;
 
     public function post()
     {
-
         return $this->belongsTo(Post::class);
-
     }
 
-    public function user() // comment->user->name
+    public function user()
     {
-
         return $this->belongsTo(User::class);
-
     }
 }
