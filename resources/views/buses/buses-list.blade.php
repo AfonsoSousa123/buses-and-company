@@ -57,7 +57,7 @@
 {{--Conteúdo dinâmico na página--}}
 @section('content')
     @include('layouts.partials.messages')
-    @include('layouts.partials.errors')
+{{--    @include('layouts.partials.errors')--}}
 
     <!--begin::Col-->
     <div class="post d-flex flex-column-fluid" id="kt_post" data-select2-id="select2-data-kt_post">
@@ -106,7 +106,7 @@
 {{--                            <!--end:Action-->--}}
                             <!--begin:Action-->
                             <div class="d-flex align-items-center justify-content-start">
-                                <button type="submit" class="btn btn-light-primary me-5">Pesquisa</button>
+                                <button type="submit" disabled id="search-submit-btn" class="btn btn-light-primary me-5">Pesquisa</button>
                             </div>
                             <!--end:Action-->
                         </div>
@@ -253,7 +253,7 @@
                     <!--begin::Button-->
 {{--                    <div class="d-flex align-items-center {{ Auth::user()->hasPermission('create-emprestimos') == false ? 'd-none' : '' }}">--}}
                     <div class="d-flex align-items-center">
-                        <button class="btn btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target="#kt_modal_add_emprestimos">
+                        <button class="btn btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target="#kt_modal_add_buses">
                             <!--begin::Svg Icon | path: assets/media/icons/duotune/general/gen035.svg-->
                             <span class="svg-icon svg-icon-muted svg-icon-2hx">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -328,7 +328,7 @@
                                         <!--end::Description-->
                                         <!--begin::State-->
                                         <td data-order="20-12-2021T00:00:00+00:00" class="sorting_1 text-start">
-                                            {{ $bus->prod_year == null ? '' : Str::toDate($bus->prod_year) }} }}
+                                            {{ $bus->prod_year == null ? '' : Str::toDate($bus->prod_year) }}
                                         </td>
                                         <!--end::State-->
                                         <!--begin::Service-->
@@ -340,10 +340,10 @@
                                         <td class="text-start">
                                             @switch ($bus->state_id)
                                                 @case (1)
-                                                    <span class="badge badge-{{ $bus->state->color }} fw-bolder px-4 py-3">{{ $bus->state->name }}</span>
+                                                    <span class="badge badge-{{ $bus->state->class }} fw-bolder px-4 py-3">{{ $bus->state->name }}</span>
                                                     @break
                                                 @case (7)
-                                                    <span class="badge badge-{{ $bus->state->color }} text-dark fw-bolder px-4 py-3">{{ $bus->state->name }}</span>
+                                                    <span class="badge badge-{{ $bus->state->class }} text-dark fw-bolder px-4 py-3">{{ $bus->state->name }}</span>
                                                     @break
                                                 @default
                                                     <span class="badge badge-info fw-bolder px-4 py-3">{{ __('Undefined') }}</span>
@@ -379,7 +379,7 @@
                                                         role="button"
                                                         type="submit"
                                                         class="btn btn-icon btn-bg-white bg-hover-secondary"
-                                                        data-kt-eventmanager-table-filter="delete_row"
+                                                        data-kt-busesmanager-table-filter="delete_row"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         title="{{ __('Delete Bus') }}"
@@ -416,12 +416,29 @@
 {{--            <!--end::Modal - New Emprestimo-->--}}
         </div>
         <!--end::Container-->
+
+        @include('buses.buses-create')
     </div>
     <!--end::Col-->
 @endsection
 
 {{--Scripts no rodapé que são utilizados apenas nesta página--}}
 @section('footer_assets')
-    <script src="{{ asset('assets/js/custom/pages/search/horizontal.js') }}"></script>
-    <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
+    <!--begin::Page Vendors Javascript(used by this page)-->
+    @if ((Session::has('errors')))
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#kt_add_buses_button').click();
+            });
+        </script>
+    @endif
+    <script src="{{ asset('assets/js/bus_list.js') }}?v={{config('app.version_code')}}"></script>
+    <!--end::Page Vendors Javascript-->
+    <!--begin::Page Custom Javascript(used by this page)-->
+    <script src="{{ asset('assets/js/custom/pages/search/horizontal.js') }}?v={{config('app.version_code')}}"></script>
+    <script src="{{ asset('assets/js/custom/pages/projects/users/users.js') }}?v={{config('app.version_code')}}"></script>
+    <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}?v={{config('app.version_code')}}"></script>
+    <script src="{{ asset('assets/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
+    <!--end::Page Custom Javascript-->
+
 @endsection

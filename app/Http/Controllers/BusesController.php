@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Bus;
+use App\Models\Company;
+use App\Models\State;
 use Illuminate\Http\Request;
 
 class BusesController extends Controller
@@ -15,8 +18,11 @@ class BusesController extends Controller
     public function index()
     {
         $buses = Bus::latest()->paginate(15);
+        $brands = Brand::latest()->get();
+        $companies = Company::latest()->get();
+        $selectStates = State::latest()->get();
 
-        return view('buses.buses-list', compact('buses'));
+        return view('buses.buses-list', compact('buses', 'brands', 'companies', 'selectStates'));
     }
 
     public function search()
@@ -35,16 +41,6 @@ class BusesController extends Controller
         }else{
             return view('buses.Buses')->withMessage("Não foi encontrado nenhum Autocarro com esse nome!");
         }
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('buses.create_Buses');
     }
 
     /**

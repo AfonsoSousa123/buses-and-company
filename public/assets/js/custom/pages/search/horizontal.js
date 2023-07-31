@@ -2,7 +2,7 @@
 
 // Class definition
 const KTSearchHorizontal = function () {
-    let form = document.querySelector('#emprestimos_search');
+    let form = document.querySelector('#buses-search');
     let searchButton = document.querySelector('#search-submit-btn');
 
     const handleAdvancedSearchToggle = function () {
