@@ -21,7 +21,7 @@ class UsersSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'id' => 1,
-                'username' => 'Servidor',
+                'name' => 'Servidor',
                 'email' => 'server@email.com',
                 'password' => Hash::make('teste123'),
                 'active' => 1, // user state
@@ -31,7 +31,7 @@ class UsersSeeder extends Seeder
             ],
             [
                 'id' => 2,
-                'username' => 'Admin',
+                'name' => 'Admin',
                 'email' => 'admin@email.com',
                 'password' => Hash::make('admin123'),
                 'active' => 1, // user state

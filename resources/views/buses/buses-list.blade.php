@@ -126,28 +126,28 @@
                                 <div class="col-xxl-12">
                                     <!--begin::Row-->
                                     <div class="row">
-{{--                                        <!--begin::Col-->--}}
-{{--                                        <div class="col-lg-2">--}}
-{{--                                            <label class="fs-6 form-label fw-bolder text-dark">Estado</label>--}}
-{{--                                            <!--begin::Select-->--}}
-{{--                                            <select--}}
-{{--                                                class="form-select form-select-solid select2-hidden-accessible"--}}
-{{--                                                name="state"--}}
-{{--                                                data-control="select2"--}}
-{{--                                                data-placeholder="---"--}}
-{{--                                                data-hide-search="true"--}}
-{{--                                                tabindex="-1"--}}
-{{--                                                aria-hidden="true"--}}
-{{--                                                data-allow-clear="true"--}}
-{{--                                            >--}}
-{{--                                                <option></option>--}}
-{{--                                                @foreach ($states as $state)--}}
-{{--                                                    <option value="{{ $state->id }}">{{ $state->name }}</option>--}}
-{{--                                                @endforeach--}}
-{{--                                            </select>--}}
-{{--                                            <!--end::Select-->--}}
-{{--                                        </div>--}}
-{{--                                        <!--end::Col-->--}}
+                                        <!--begin::Col-->
+                                        <div class="col-lg-2">
+                                            <label class="fs-6 form-label fw-bolder text-dark">{{ __('State') }}</label>
+                                            <!--begin::Select-->
+                                            <select
+                                                class="form-select form-select-solid select2-hidden-accessible"
+                                                name="state"
+                                                data-control="select2"
+                                                data-placeholder="---"
+                                                data-hide-search="true"
+                                                tabindex="-1"
+                                                aria-hidden="true"
+                                                data-allow-clear="true"
+                                            >
+                                                <option></option>
+                                                @foreach ($states as $state)
+                                                    <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            <!--end::Select-->
+                                        </div>
+                                        <!--end::Col-->
 {{--                                        <!--begin::Col-->--}}
 {{--                                        <div class="col-lg-2">--}}
 {{--                                            <label class="fs-6 form-label fw-bolder text-dark">ID</label>--}}
@@ -171,69 +171,101 @@
 {{--                                        </div>--}}
 {{--                                        <!--end::Col-->--}}
                                         <!--begin::Col-->
-{{--                                        <div class="col-lg-4">--}}
-{{--                                            <label class="fs-6 form-label fw-bolder text-dark">Data</label>--}}
+                                        <div class="col-lg-4">
+                                            <label class="fs-6 form-label fw-bolder text-dark">Data</label>
 
-{{--                                            <div class="d-flex flex-row align-items-center">--}}
-{{--                                                <!--begin::datePicker-->--}}
-{{--                                                <input--}}
-{{--                                                    class="form-control form-control-solid me-1"--}}
-{{--                                                    name="field_date"--}}
-{{--                                                    placeholder="---"--}}
-{{--                                                    id="kt_datepicker_data-requerimento"--}}
-{{--                                                />--}}
-{{--                                                <!--end::datePicker-->--}}
-{{--                                                <!--begin::Select-->--}}
-{{--                                                <select--}}
-{{--                                                    class="form-select form-select-solid select2-hidden-accessible"--}}
-{{--                                                    name="select_date"--}}
-{{--                                                    id="select_date"--}}
-{{--                                                    data-control="select2"--}}
-{{--                                                    data-hide-search="true"--}}
-{{--                                                    tabindex="-1"--}}
-{{--                                                    aria-hidden="true"--}}
-{{--                                                >--}}
-{{--                                                    <option value="data_requerimento">Data Requerimento</option>--}}
-{{--                                                    <option value="data_levantamento">Data Levantamento</option>--}}
-{{--                                                    <option value="data_prev_dev">Data prevista Devolução</option>--}}
-{{--                                                    <option value="data_devolucao">Data Devolução</option>--}}
-{{--                                                </select>--}}
-{{--                                                <!--end::Select-->--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                                            <div class="d-flex flex-row align-items-center">
+                                                <!--begin::datePicker-->
+                                                <input
+                                                    class="form-control form-control-solid me-1"
+                                                    name="field_date"
+                                                    placeholder="---"
+                                                    id="kt_datepicker_data-requerimento"
+                                                />
+                                                <!--end::datePicker-->
+                                                <!--begin::Select-->
+                                                <select
+                                                    class="form-select form-select-solid select2-hidden-accessible"
+                                                    name="select_date"
+                                                    id="select_date"
+                                                    data-control="select2"
+                                                    data-hide-search="true"
+                                                    tabindex="-1"
+                                                    aria-hidden="true"
+                                                >
+                                                    <option value="data_requerimento">Data Requerimento</option>
+                                                    <option value="data_levantamento">Data Levantamento</option>
+                                                    <option value="data_prev_dev">Data prevista Devolução</option>
+                                                    <option value="data_devolucao">Data Devolução</option>
+                                                </select>
+                                                <!--end::Select-->
+                                            </div>
+                                        </div>
                                         <!--end::Col-->
-{{--                                        <!--begin::Col-->--}}
-{{--                                        <div class="col-lg-4">--}}
-{{--                                            <div class="fv-row mb-9">--}}
-{{--                                                <!--begin::Label-->--}}
-{{--                                                <label for="service" class="fs-6 fw-bold mb-2">Serviço</label>--}}
-{{--                                                <!--end::Label-->--}}
-{{--                                                <!--begin::Input-->--}}
-{{--                                                <div class="input-group input-group-solid">--}}
-{{--                                                    <div class="flex-grow-1">--}}
-{{--                                                        <select--}}
-{{--                                                            class="form-select form-select-solid"--}}
-{{--                                                            id="service_select_search"--}}
-{{--                                                            name="service_select_search"--}}
-{{--                                                            data-control="select2"--}}
-{{--                                                            data-placeholder="Pesquise um Serviço"--}}
-{{--                                                            data-allow-clear="true"--}}
-{{--                                                            data-hide-search="false"--}}
-{{--                                                        >--}}
-{{--                                                            <option></option>--}}
-{{--                                                            @foreach ($services as $service)--}}
-{{--                                                                <option value="{{ $service->name }}">--}}
-{{--                                                                    {{ $service->name }}--}}
-{{--                                                                </option>--}}
-{{--                                                            @endforeach--}}
-{{--                                                        </select>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                                <!--end::Input-->--}}
-{{--                                            </div>--}}
-{{--                                            <!--end::State group-->--}}
-{{--                                        </div>--}}
-{{--                                        <!--end::Col-->--}}
+                                        <!--begin::Col-->
+                                        <div class="col-lg-3">
+                                            <div class="fv-row mb-9">
+                                                <!--begin::Label-->
+                                                <label for="brand" class="fs-6 fw-bold mb-2">{{ __('Brand') }}</label>
+                                                <!--end::Label-->
+                                                <!--begin::Input-->
+                                                <div class="input-group input-group-solid">
+                                                    <div class="flex-grow-1">
+                                                        <select
+                                                            class="form-select form-select-solid"
+                                                            id="brand_select_search"
+                                                            name="brand_select_search"
+                                                            data-control="select2"
+                                                            data-placeholder="Pesquise uma Marca"
+                                                            data-allow-clear="true"
+                                                            data-hide-search="false"
+                                                        >
+                                                            <option></option>
+                                                            @foreach ($brands as $brand)
+                                                                <option value="{{ $brand->name }}">
+                                                                    {{ $brand->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--end::Input-->
+                                            </div>
+                                            <!--end::State group-->
+                                        </div>
+                                        <!--end::Col-->
+                                        <!--begin::Col-->
+                                        <div class="col-lg-3">
+                                            <div class="fv-row mb-9">
+                                                <!--begin::Label-->
+                                                <label for="company" class="fs-6 fw-bold mb-2">{{ __('Company') }}</label>
+                                                <!--end::Label-->
+                                                <!--begin::Input-->
+                                                <div class="input-group input-group-solid">
+                                                    <div class="flex-grow-1">
+                                                        <select
+                                                            class="form-select form-select-solid"
+                                                            id="company_select_search"
+                                                            name="company_select_search"
+                                                            data-control="select2"
+                                                            data-placeholder="Pesquise uma Companhia"
+                                                            data-allow-clear="true"
+                                                            data-hide-search="false"
+                                                        >
+                                                            <option></option>
+                                                            @foreach ($companies as $company)
+                                                                <option value="{{ $company->name }}">
+                                                                    {{ $company->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--end::Input-->
+                                            </div>
+                                            <!--end::State group-->
+                                        </div>
+                                        <!--end::Col-->
                                     </div>
                                     <!--end::Row-->
                                 </div>
@@ -313,30 +345,32 @@
                                 <tbody class="fs-6">
                                 @foreach ($buses as $bus)
                                     <tr class="odd">
+                                        <!--begin::Licence Plate-->
                                         <td class="text-start align-center mw-30px">
-{{--                                            <a href="{{ route('emprestimos-show', $bus->id ) }}" class="mb-1 text-gray-800 text-hover-primary">--}}
-                                                {{ $bus->licence_plate }}
-{{--                                            </a>--}}
+    {{--                                   <a href="{{ route('emprestimos-show', $bus->id ) }}" class="mb-1 text-gray-800 text-hover-primary">--}}
+                                            {{ $bus->licence_plate }}
+    {{--                                   </a>--}}
                                         </td>
+                                        <!--end::Licence Plate-->
                                         <td class="text-start align-center mw-30px">
                                             {{ $bus->brand_id == null ? '' : $bus->brand->name }}
                                         </td>
-                                        <!--begin::Description-->
+                                        <!--begin::Model-->
                                         <td class="text-start align-center">
-                                            {{ $bus->model == null ? '' : $bus->model }}
+                                            {{ $bus->model == null ? "Undefined" : $bus->model }}
                                         </td>
-                                        <!--end::Description-->
-                                        <!--begin::State-->
+                                        <!--end::Model-->
+                                        <!--begin::Prod Year-->
                                         <td data-order="20-12-2021T00:00:00+00:00" class="sorting_1 text-start">
                                             {{ $bus->prod_year == null ? '' : Str::toDate($bus->prod_year) }}
                                         </td>
-                                        <!--end::State-->
-                                        <!--begin::Service-->
+                                        <!--end::Prod Year-->
+                                        <!--begin::Company-->
                                         <td class="text-start">
                                             {{ $bus->company_id == null ? '' : $bus->company->name}}
                                         </td>
-                                        <!--end::Service-->
-                                        <!--begin::Nome de Requerimento-->
+                                        <!--end::Company-->
+                                        <!--begin::State-->
                                         <td class="text-start">
                                             @switch ($bus->state_id)
                                                 @case (1)
@@ -350,12 +384,12 @@
                                                     @break
                                             @endswitch
                                         </td>
-                                        <!--end::Nome de Requerimento-->
-                                        <!--begin::Data de Requerimento-->
+                                        <!--end::State-->
+                                        <!--begin::Fuel-->
                                         <td data-order="20-12-2021T00:00:00+00:00" class="sorting_1 text-start">
                                             {{ $bus->fuel }}
                                         </td>
-                                        <!--end::Data de Requerimento-->
+                                        <!--end::Fuel-->
 {{--                                        <td class="text-start {{ Auth::user()->hasPermission('manage-buses') == false ? 'd-none' : '' }}">--}}
                                         <td class="text-start">
                                             <div class="d-flex justify-content-end flex-shrink-0">

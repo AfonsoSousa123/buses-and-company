@@ -21,8 +21,9 @@ class BusesController extends Controller
         $brands = Brand::latest()->get();
         $companies = Company::latest()->get();
         $selectStates = State::latest()->get();
+        $states = State::latest()->get();
 
-        return view('buses.buses-list', compact('buses', 'brands', 'companies', 'selectStates'));
+        return view('buses.buses-list', compact('buses', 'brands', 'companies', 'selectStates', 'states'));
     }
 
     public function search()
@@ -36,10 +37,10 @@ class BusesController extends Controller
             ->get();
 
             if(count($buses) > 0)
-                return view('buses.Buses', compact('buses'))->withDetails($buses)->withQuery($b);
+                return view('buses.buses-list', compact('buses'))->withDetails($buses)->withQuery($b);
 
         }else{
-            return view('buses.Buses')->withMessage("Não foi encontrado nenhum Autocarro com esse nome!");
+            return view('buses.buses-list')->withMessage("Não foi encontrado nenhum Autocarro com esse nome!");
         }
     }
 

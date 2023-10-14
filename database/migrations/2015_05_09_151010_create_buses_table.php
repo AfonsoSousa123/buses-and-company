@@ -21,6 +21,7 @@ class CreateBusesTable extends Migration
             $table->unsignedBigInteger('company_id')->nullable();
             $table->unsignedBigInteger('brand_id')->nullable();
             $table->string('licence_plate')->unique()->nullable();
+            $table->string('old_licence_plate')->unique()->nullable();
             $table->date('prod_year')->nullable();
             $table->string('model')->nullable();
             $table->string('engine')->nullable();

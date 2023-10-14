@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('commnent_image', function (Blueprint $table) {
+        Schema::create('comment_image', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('comment_id')->nullable();
             $table->unsignedBigInteger('image_id')->nullable();

@@ -11,20 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('companies', function (Blueprint $table) {
+        Schema::create('thread_action_history', function (Blueprint $table) {
             $table->id();
-            $table->uuid('uuid')->nullable()->unique();
-            $table->string('name')->nullable();
-            $table->string('short')->nullable();
-            $table->string('owner')->nullable();
-            $table->date('begin_year')->nullable();
+            $table->unsignedBigInteger('thread_id')->nullable();
+            $table->unsignedBigInteger('action_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('state_id')->nullable();
+            $table->foreign('thread_id')->references('id')->on('threads');
+            $table->foreign('action_id')->references('id')->on('actions');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('state_id')->references('id')->on('states');
             $table->timestamps();
             $table->softDeletes();
         });
+
     }
 
     /**
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('companies');
+        //
     }
 };
