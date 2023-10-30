@@ -90,9 +90,9 @@
                                 <!--end::Input-->
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                                 @error('licence_plate')
-                                @foreach($errors->get('licence_plate') as $message)
-                                    <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>
-                                @endforeach
+                                    @foreach($errors->get('licence_plate') as $message)
+                                        <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>
+                                    @endforeach
                                 @enderror
                             </div>
                         </div>
@@ -139,7 +139,7 @@
                         <div class="col-lg-6">
                             <div class="fv-row mb-9">
                                 <!--begin::Label-->
-                                <label class="fs-6 fw-bold required mb-2">{{ __('Model') }}</label>
+                                <label class="fs-6 fw-bold mb-2">{{ __('Model') }}</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input
@@ -149,14 +149,13 @@
                                     id="model"
                                     value="{{ old('model') }}"
                                     placeholder="{{ __('Insert the Model') }}"
-                                    required
                                 >
                                 <!--end::Input-->
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                                 @error('model')
-                                @foreach($errors->get('model') as $message)
-                                    <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>
-                                @endforeach
+                                    @foreach($errors->get('model') as $message)
+                                        <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>
+                                    @endforeach
                                 @enderror
                             </div>
                         </div>
@@ -389,49 +388,49 @@
                         </div>
 
                         <div id="existing_image" class="tab-pane fade my-5">
-{{--                            <div class="row row-cols-lg-12 g-10 mb-6">--}}
-{{--                                <!--begin::Image group-->--}}
-{{--                                <div class="col-lg-12">--}}
-{{--                                    <div class="fv-row">--}}
-{{--                                        <!--begin::Label-->--}}
-{{--                                        <label for="bus_images" class="fs-6 fw-bold mb-2">{{ __('Image') }}</label>--}}
-{{--                                        <!--end::Label-->--}}
-{{--                                        <!--begin::Input-->--}}
-{{--                                        <div class="input-group input-group-solid @error('bus_images') is-invalid @enderror">--}}
-{{--                                                        <span class="input-group-text">--}}
-{{--                                                            <i class="fas fa-image"></i>--}}
-{{--                                                        </span>--}}
-{{--                                            <div class="flex-grow-1">--}}
-{{--                                                <select--}}
-{{--                                                    class="form-select form-select-solid"--}}
-{{--                                                    id="bus_images"--}}
-{{--                                                    name="bus_images[]"--}}
-{{--                                                    data-control="select2"--}}
-{{--                                                    data-placeholder="Selecione uma Imagem"--}}
-{{--                                                    data-dropdown-parent="#kt_modal_add_bus_form"--}}
-{{--                                                    data-allow-clear="true"--}}
-{{--                                                >--}}
-{{--                                                    <option></option>--}}
-{{--                                                    @foreach ($images as $image)--}}
-{{--                                                        <option value="{{ $image->id }}" data-kt-select2-image="{{ $image->thumbnail }}">--}}
-{{--                                                            <span class="text-truncate">{{ $image->real_name }}</span>--}}
-{{--                                                        </option>--}}
-{{--                                                    @endforeach--}}
-{{--                                                </select>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                            <div class="row row-cols-lg-12 g-10 mb-6">
+                                <!--begin::Image group-->
+                                <div class="col-lg-12">
+                                    <div class="fv-row">
+                                        <!--begin::Label-->
+                                        <label for="bus_images" class="fs-6 fw-bold mb-2">{{ __('Image') }}</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <div class="input-group input-group-solid @error('bus_images') is-invalid @enderror">
+                                                        <span class="input-group-text">
+                                                            <i class="fas fa-image"></i>
+                                                        </span>
+                                            <div class="flex-grow-1">
+                                                <select
+                                                    class="form-select form-select-solid"
+                                                    id="bus_images"
+                                                    name="bus_images[]"
+                                                    data-control="select2"
+                                                    data-placeholder="Selecione uma Imagem"
+                                                    data-dropdown-parent="#kt_modal_add_bus_form"
+                                                    data-allow-clear="true"
+                                                >
+                                                    <option></option>
+                                                    @foreach ($images as $image)
+                                                        <option value="{{ $image->id }}" data-kt-select2-image="{{ $image->thumbnail }}">
+                                                            <span class="text-truncate">{{ $image->real_name }}</span>
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
 
-{{--                                        <div class="fv-plugins-message-container invalid-feedback"></div>--}}
-{{--                                        @error('bus_images')--}}
-{{--                                        @foreach($errors->get('bus_images') as $message)--}}
-{{--                                            <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>--}}
-{{--                                        @endforeach--}}
-{{--                                        @enderror--}}
-{{--                                    </div>--}}
-{{--                                    <!--end::Input-->--}}
-{{--                                </div>--}}
-{{--                                <!--end::Image group-->--}}
-{{--                            </div>--}}
+                                        <div class="fv-plugins-message-container invalid-feedback"></div>
+                                        @error('bus_images')
+                                            @foreach($errors->get('bus_images') as $message)
+                                                <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>
+                                            @endforeach
+                                        @enderror
+                                    </div>
+                                    <!--end::Input-->
+                                </div>
+                                <!--end::Image group-->
+                            </div>
                         </div>
                     </div>
                     <!--end::Tab content-->
@@ -472,201 +471,195 @@
 {{--                    </div>--}}
 {{--                    <!--end::Input group-->--}}
 
-                    <div class="odd accordion accordion-icon-toggle" id="kt_accordion_details">
-                        Extra Fields
-                        <button
-                            type="button"
-                            class="btn btn-icon btn-bg-white btn-active-light-primary toggle h-30px w-30px"
-                            id="kt_accordion_details"
-                            data-kt-table-widget-4="expand_row"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#kt_accordion_details_item"
-                        >
-                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr087.svg-->
-                            <span
-                                class="svg-icon svg-icon-1 svg-icon-primary svg-icon-2hx m-0 toggle-off"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <rect opacity="0.5" x="11" y="18" width="12" height="2" rx="1" transform="rotate(-90 11 18)" fill="currentColor"></rect>
-                                    <rect x="6" y="11" width="12" height="2" rx="1" fill="currentColor"></rect>
-                                </svg>
-                            </span>
-                            <!--end::Svg Icon-->
-                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr089.svg-->
-                            <span class="svg-icon svg-icon-1 svg-icon-primary svg-icon-2hx m-0 toggle-on">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <rect x="6" y="11" width="12" height="2" rx="1" fill="currentColor"></rect>
-                                </svg>
-                            </span>
-                            <!--end::Svg Icon-->
-                        </button>
+{{--                    <div class="odd accordion accordion-icon-toggle" id="kt_accordion_details">--}}
+{{--                        Extra Fields--}}
+{{--                        <button--}}
+{{--                            type="button"--}}
+{{--                            class="btn btn-icon btn-bg-white btn-active-light-primary toggle h-30px w-30px"--}}
+{{--                            id="kt_accordion_details"--}}
+{{--                            data-kt-table-widget-4="expand_row"--}}
+{{--                            data-bs-toggle="collapse"--}}
+{{--                            data-bs-target="#kt_accordion_details_item"--}}
+{{--                        >--}}
+{{--                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr087.svg-->--}}
+{{--                            <span--}}
+{{--                                class="svg-icon svg-icon-1 svg-icon-primary svg-icon-2hx m-0 toggle-off"--}}
+{{--                            >--}}
+{{--                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">--}}
+{{--                                    <rect opacity="0.5" x="11" y="18" width="12" height="2" rx="1" transform="rotate(-90 11 18)" fill="currentColor"></rect>--}}
+{{--                                    <rect x="6" y="11" width="12" height="2" rx="1" fill="currentColor"></rect>--}}
+{{--                                </svg>--}}
+{{--                            </span>--}}
+{{--                            <!--end::Svg Icon-->--}}
+{{--                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr089.svg-->--}}
+{{--                            <span class="svg-icon svg-icon-1 svg-icon-primary svg-icon-2hx m-0 toggle-on">--}}
+{{--                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">--}}
+{{--                                    <rect x="6" y="11" width="12" height="2" rx="1" fill="currentColor"></rect>--}}
+{{--                                </svg>--}}
+{{--                            </span>--}}
+{{--                            <!--end::Svg Icon-->--}}
+{{--                        </button>--}}
 
-                        <div
-                            id="kt_accordion_details_item"
-                            class="mb-0 fs-6 me-5 accordion-body collapse ps-10"
-                            data-bs-parent="#kt_accordion_details"
-                        >
-                            <!--begin::Input Group-->
-                            <div class="row row-cols-lg-2 g-10">
-                                <div class="col-lg-6">
-                                    <div class="fv-row mb-9">
-                                        <!--begin::Label-->
-                                        <label for="engine" class="fs-6 fw-bold required mb-2">{{ __('Engine') }}</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <input
-                                            type="text"
-                                            class="form-control form-control-solid @error('engine') is-invalid @enderror"
-                                            name="engine"
-                                            id="engine"
-                                            value="{{ old('engine') }}"
-                                            placeholder="{{ __('Insert the engine here') }}"
-                                            required
-                                        >
-                                        <!--end::Input-->
-                                        <div class="fv-plugins-message-container invalid-feedback"></div>
-                                        @error('engine')
-                                        @foreach($errors->get('engine') as $message)
-                                            <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>
-                                        @endforeach
-                                        @enderror
-                                    </div>
-                                </div>
+{{--                        <div--}}
+{{--                            id="kt_accordion_details_item"--}}
+{{--                            class="mb-0 fs-6 me-5 accordion-body collapse ps-10"--}}
+{{--                            data-bs-parent="#kt_accordion_details"--}}
+{{--                        >--}}
+{{--                            <!--begin::Input Group-->--}}
+{{--                            <div class="row row-cols-lg-2 g-10">--}}
+{{--                                <div class="col-lg-6">--}}
+{{--                                    <div class="fv-row mb-9">--}}
+{{--                                        <!--begin::Label-->--}}
+{{--                                        <label for="engine" class="fs-6 fw-bold mb-2">{{ __('Engine') }}</label>--}}
+{{--                                        <!--end::Label-->--}}
+{{--                                        <!--begin::Input-->--}}
+{{--                                        <input--}}
+{{--                                            type="text"--}}
+{{--                                            class="form-control form-control-solid @error('engine') is-invalid @enderror"--}}
+{{--                                            name="engine"--}}
+{{--                                            id="engine"--}}
+{{--                                            value="{{ old('engine') }}"--}}
+{{--                                            placeholder="{{ __('Insert the engine here') }}"--}}
+{{--                                        >--}}
+{{--                                        <!--end::Input-->--}}
+{{--                                        <div class="fv-plugins-message-container invalid-feedback"></div>--}}
+{{--                                        @error('engine')--}}
+{{--                                        @foreach($errors->get('engine') as $message)--}}
+{{--                                            <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>--}}
+{{--                                        @endforeach--}}
+{{--                                        @enderror--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 
-                                <div class="col-lg-6">
-                                    <div class="fv-row mb-9">
-                                        <!--begin::Label-->
-                                        <label for="engine_num" class="fs-6 fw-bold required mb-2">{{ __('Engine Number') }}</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <input
-                                            type="text"
-                                            class="form-control form-control-solid @error('engine_num') is-invalid @enderror"
-                                            name="engine_num"
-                                            id="engine_num"
-                                            value="{{ old('engine_num') }}"
-                                            placeholder="{{ __('Insert the engine number here') }}"
-                                            required
-                                        >
-                                        <!--end::Input-->
-                                        <div class="fv-plugins-message-container invalid-feedback"></div>
-                                        @error('engine_num')
-                                            @foreach($errors->get('engine_num') as $message)
-                                                <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>
-                                            @endforeach
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end::Input Group-->
-                            <!--begin::Input Group-->
-                            <div class="row row-cols-lg-2 g-10">
-                                <div class="col-lg-6">
-                                    <div class="fv-row mb-9">
-                                        <!--begin::Label-->
-                                        <label for="fuel" class="fs-6 fw-bold required mb-2">{{ __('Fuel') }}</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <input
-                                            type="text"
-                                            class="form-control form-control-solid @error('fuel') is-invalid @enderror"
-                                            name="fuel"
-                                            id="fuel"
-                                            value="{{ old('fuel') }}"
-                                            placeholder="{{ __('Insert the fuel here') }}"
-                                            required
-                                        >
-                                        <!--end::Input-->
-                                        <div class="fv-plugins-message-container invalid-feedback"></div>
-                                        @error('fuel')
-                                        @foreach($errors->get('fuel') as $message)
-                                            <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>
-                                        @endforeach
-                                        @enderror
-                                    </div>
-                                </div>
+{{--                                <div class="col-lg-6">--}}
+{{--                                    <div class="fv-row mb-9">--}}
+{{--                                        <!--begin::Label-->--}}
+{{--                                        <label for="engine_num" class="fs-6 fw-bold mb-2">{{ __('Engine Number') }}</label>--}}
+{{--                                        <!--end::Label-->--}}
+{{--                                        <!--begin::Input-->--}}
+{{--                                        <input--}}
+{{--                                            type="text"--}}
+{{--                                            class="form-control form-control-solid @error('engine_num') is-invalid @enderror"--}}
+{{--                                            name="engine_num"--}}
+{{--                                            id="engine_num"--}}
+{{--                                            value="{{ old('engine_num') }}"--}}
+{{--                                            placeholder="{{ __('Insert the engine number here') }}"--}}
+{{--                                        >--}}
+{{--                                        <!--end::Input-->--}}
+{{--                                        <div class="fv-plugins-message-container invalid-feedback"></div>--}}
+{{--                                        @error('engine_num')--}}
+{{--                                            @foreach($errors->get('engine_num') as $message)--}}
+{{--                                                <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>--}}
+{{--                                            @endforeach--}}
+{{--                                        @enderror--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <!--end::Input Group-->--}}
+{{--                            <!--begin::Input Group-->--}}
+{{--                            <div class="row row-cols-lg-2 g-10">--}}
+{{--                                <div class="col-lg-6">--}}
+{{--                                    <div class="fv-row mb-9">--}}
+{{--                                        <!--begin::Label-->--}}
+{{--                                        <label for="fuel" class="fs-6 fw-bold mb-2">{{ __('Fuel') }}</label>--}}
+{{--                                        <!--end::Label-->--}}
+{{--                                        <!--begin::Input-->--}}
+{{--                                        <input--}}
+{{--                                            type="text"--}}
+{{--                                            class="form-control form-control-solid @error('fuel') is-invalid @enderror"--}}
+{{--                                            name="fuel"--}}
+{{--                                            id="fuel"--}}
+{{--                                            value="{{ old('fuel') }}"--}}
+{{--                                            placeholder="{{ __('Insert the fuel here') }}"--}}
+{{--                                        >--}}
+{{--                                        <!--end::Input-->--}}
+{{--                                        <div class="fv-plugins-message-container invalid-feedback"></div>--}}
+{{--                                        @error('fuel')--}}
+{{--                                        @foreach($errors->get('fuel') as $message)--}}
+{{--                                            <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>--}}
+{{--                                        @endforeach--}}
+{{--                                        @enderror--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 
-                                <div class="col-lg-6">
-                                    <div class="fv-row mb-9">
-                                        <!--begin::Label-->
-                                        <label for="capacity" class="fs-6 fw-bold required mb-2">{{ __('Capacity') }}</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <input
-                                            type="text"
-                                            class="form-control form-control-solid @error('capacity') is-invalid @enderror"
-                                            name="capacity"
-                                            id="capacity"
-                                            value="{{ old('capacity') }}"
-                                            placeholder="{{ __('Insert the capacity number here') }}"
-                                            required
-                                        >
-                                        <!--end::Input-->
-                                        <div class="fv-plugins-message-container invalid-feedback"></div>
-                                        @error('capacity')
-                                        @foreach($errors->get('capacity') as $message)
-                                            <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>
-                                        @endforeach
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end::Input Group-->
+{{--                                <div class="col-lg-6">--}}
+{{--                                    <div class="fv-row mb-9">--}}
+{{--                                        <!--begin::Label-->--}}
+{{--                                        <label for="capacity" class="fs-6 fw-bold mb-2">{{ __('Capacity') }}</label>--}}
+{{--                                        <!--end::Label-->--}}
+{{--                                        <!--begin::Input-->--}}
+{{--                                        <input--}}
+{{--                                            type="text"--}}
+{{--                                            class="form-control form-control-solid @error('capacity') is-invalid @enderror"--}}
+{{--                                            name="capacity"--}}
+{{--                                            id="capacity"--}}
+{{--                                            value="{{ old('capacity') }}"--}}
+{{--                                            placeholder="{{ __('Insert the capacity number here') }}"--}}
+{{--                                        >--}}
+{{--                                        <!--end::Input-->--}}
+{{--                                        <div class="fv-plugins-message-container invalid-feedback"></div>--}}
+{{--                                        @error('capacity')--}}
+{{--                                        @foreach($errors->get('capacity') as $message)--}}
+{{--                                            <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>--}}
+{{--                                        @endforeach--}}
+{{--                                        @enderror--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <!--end::Input Group-->--}}
 
-                            <!--begin::Input Group-->
-                            <div class="row row-cols-lg-2 g-10">
-                                <div class="col-lg-6">
-                                    <div class="fv-row mb-9">
-                                        <!--begin::Label-->
-                                        <label for="chassis" class="fs-6 fw-bold required mb-2">{{ __('Chassis') }}</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <input
-                                            type="text"
-                                            class="form-control form-control-solid @error('chassis') is-invalid @enderror"
-                                            name="chassis"
-                                            id="chassis"
-                                            value="{{ old('chassis') }}"
-                                            placeholder="{{ __('Insert the chassis here') }}"
-                                            required
-                                        >
-                                        <!--end::Input-->
-                                        <div class="fv-plugins-message-container invalid-feedback"></div>
-                                        @error('chassis')
-                                        @foreach($errors->get('chassis') as $message)
-                                            <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>
-                                        @endforeach
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="fv-row mb-9">
-                                        <!--begin::Label-->
-                                        <label for="chassis_num" class="fs-6 fw-bold required mb-2">{{ __('Chassis Number') }}</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <input
-                                            type="text"
-                                            class="form-control form-control-solid @error('chassis_num') is-invalid @enderror"
-                                            name="chassis_num"
-                                            id="chassis_num"
-                                            value="{{ old('chassis_num') }}"
-                                            placeholder="{{ __('Insert the chassis number here') }}"
-                                            required
-                                        >
-                                        <!--end::Input-->
-                                        <div class="fv-plugins-message-container invalid-feedback"></div>
-                                        @error('chassis_num')
-                                        @foreach($errors->get('chassis_num') as $message)
-                                            <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>
-                                        @endforeach
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end::Input Group-->
-                        </div>
-                    </div>
+{{--                            <!--begin::Input Group-->--}}
+{{--                            <div class="row row-cols-lg-2 g-10">--}}
+{{--                                <div class="col-lg-6">--}}
+{{--                                    <div class="fv-row mb-9">--}}
+{{--                                        <!--begin::Label-->--}}
+{{--                                        <label for="chassis" class="fs-6 fw-bold mb-2">{{ __('Chassis') }}</label>--}}
+{{--                                        <!--end::Label-->--}}
+{{--                                        <!--begin::Input-->--}}
+{{--                                        <input--}}
+{{--                                            type="text"--}}
+{{--                                            class="form-control form-control-solid @error('chassis') is-invalid @enderror"--}}
+{{--                                            name="chassis"--}}
+{{--                                            id="chassis"--}}
+{{--                                            value="{{ old('chassis') }}"--}}
+{{--                                            placeholder="{{ __('Insert the chassis here') }}"--}}
+{{--                                        >--}}
+{{--                                        <!--end::Input-->--}}
+{{--                                        <div class="fv-plugins-message-container invalid-feedback"></div>--}}
+{{--                                        @error('chassis')--}}
+{{--                                        @foreach($errors->get('chassis') as $message)--}}
+{{--                                            <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>--}}
+{{--                                        @endforeach--}}
+{{--                                        @enderror--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-lg-6">--}}
+{{--                                    <div class="fv-row mb-9">--}}
+{{--                                        <!--begin::Label-->--}}
+{{--                                        <label for="chassis_num" class="fs-6 fw-bold mb-2">{{ __('Chassis Number') }}</label>--}}
+{{--                                        <!--end::Label-->--}}
+{{--                                        <!--begin::Input-->--}}
+{{--                                        <input--}}
+{{--                                            type="text"--}}
+{{--                                            class="form-control form-control-solid @error('chassis_num') is-invalid @enderror"--}}
+{{--                                            name="chassis_num"--}}
+{{--                                            id="chassis_num"--}}
+{{--                                            value="{{ old('chassis_num') }}"--}}
+{{--                                            placeholder="{{ __('Insert the chassis number here') }}"--}}
+{{--                                        >--}}
+{{--                                        <!--end::Input-->--}}
+{{--                                        <div class="fv-plugins-message-container invalid-feedback"></div>--}}
+{{--                                        @error('chassis_num')--}}
+{{--                                        @foreach($errors->get('chassis_num') as $message)--}}
+{{--                                            <div class="fv-plugins-message-container invalid-feedback">{{ $message }}</div>--}}
+{{--                                        @endforeach--}}
+{{--                                        @enderror--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <!--end::Input Group-->--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                 </div>
                 <!--end::Modal body-->

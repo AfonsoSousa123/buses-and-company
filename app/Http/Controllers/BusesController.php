@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BusStoreRequest;
 use App\Models\Brand;
 use App\Models\Bus;
 use App\Models\Company;
 use App\Models\State;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class BusesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -22,10 +25,15 @@ class BusesController extends Controller
         $companies = Company::latest()->get();
         $selectStates = State::latest()->get();
         $states = State::latest()->get();
+        $images = Media::latest()->get();
 
-        return view('buses.buses-list', compact('buses', 'brands', 'companies', 'selectStates', 'states'));
+        return view('buses.buses-list', compact('buses', 'brands', 'companies', 'selectStates', 'states', 'images'));
     }
 
+    /**
+     * Search for the resource.
+     *
+     */
     public function search()
     {
         $b = request('b');
@@ -47,51 +55,48 @@ class BusesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(BusStoreRequest $request)
     {
-        // Create a new bus using the request data
+        // Formats the prod_year
+        if ($request->filled('prod_year')) {
+            $prod_year = Carbon::createFromFormat('d-m-Y', $request->prod_year);
+        } else {
+            $prod_year = null;
+        }
 
-        $bus = new Bus;
-
-
-        $bus->user_id = auth()->id();
-        $bus->Matricula = request('Matricula');
-        $bus->Marca = request('Marca');
-        $bus->Ano_Producao = request('Ano_prod');
-        $bus->Empresa = request('Empresa');
-        $bus->Modelo = request('Modelo');
-        $bus->Imagem = request('Imagem');
-        $bus->Motor = request('Motor');
-        $bus->Num_Motor = request('Num_Motor');
-        $bus->Combustivel = request('Combustivel');
-        $bus->Carrocaria = request('Carrocaria');
-        $bus->Num_Chassis = request('Num_Chassis');
-        $bus->Lotacao = request('Lotacao');
-        $bus->Comprimento = request('Comprimento');
-        $bus->Largura = request('Largura');
-        $bus->Altura = request('Altura');
-        $bus->Dist_entre_eixos = request('Dist_entre_eixos');
-        $bus->Peso_bruto = request('Peso_bruto');
-        $bus->Descricao = request('Descricao');
-
-        // Save it to the database
-
-        $bus->save();
+        // Cria o Empréstimo
+        $bus = Bus::create([
+            'licence_plate' => $request->licence_plate,
+            'user_id' => Auth::user()->id,
+            'brand_id' => $request->brand_select,
+            'company_id' => $request->company_select,
+            'state_id' => $request->bus_state,
+            'model' => $request->filled('model') != null ? $request->model : null,
+            'prod_year' => $prod_year,
+            'fuel' => $request->filled('fuel') != null ? $request->fuel : 'Diesel',
+            'description' => $request->filled('description') != null ? $request->description : null,
+//            'nome_levantamento' => $request->filled('nome_levantamento') != null ? $request->nome_levantamento : null,
+        ]);
 
         // And then redirects to the home page
+        if ($bus) {
+            // Regista a acão de Criação do Empréstimo no Histórico
+//            ActionBusHistory::create([
+//                'bus_id' => $bus->id,
+//                'user_id' => Auth::user()->id,
+//                'action_id' => 1,
+//            ]);
 
-        return redirect('/buses')->withMessage(__('Bus successfully created!'));
-
+            return redirect(route('buses-list'))->with('success', 'Bus created successfully!');
+        } else {
+            return redirect(url()->previous())->with('error', 'There was an error!');
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function show(Bus $bus)
     {
@@ -114,9 +119,6 @@ class BusesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $buses)
     {
@@ -151,8 +153,6 @@ class BusesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Bus $bus)
     {

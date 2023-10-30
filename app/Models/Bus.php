@@ -13,9 +13,11 @@ class Bus extends Model
     protected $fillable = [
         'uuid',
         'licence_plate',
-        'brand',
+        'brand_id',
+        'state_id',
+        'user_id',
+        'company_id',
         'model',
-        'company',
         'prod_year',
         'engine',
         'engine_num',
@@ -40,6 +42,7 @@ class Bus extends Model
     {
         return $this->belongsTo(Company::class);
     }
+
     public function state()
     {
         return $this->belongsTo(State::class);

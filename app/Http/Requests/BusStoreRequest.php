@@ -18,9 +18,10 @@ class BusStoreRequest extends FormRequest
     {
         return [
             'licence_plate' => 'Licence Plate',
-            'brand' => 'Brand',
+            'brand_select' => 'Brand',
             'model' => 'Model',
-            'company' => 'Company',
+            'bus_state' => 'State',
+            'company_select' => 'Company',
             'prod_year' => 'Production Year',
             'engine' => 'Engine',
             'engine_num' => 'Engine Number',
@@ -46,12 +47,13 @@ class BusStoreRequest extends FormRequest
     {
         return [
             'licence_plate' => 'required|min:3|max:150',
-            'brand' => 'required|min:3|max:150',
-            'company' => 'required|min:3|max:150',
-            'model' => 'required|min:3|max:150',
-            'prod_year' => 'required|year',
-            'engine' => 'required|min:3|max:150',
-            'engine_num' => 'required|min:3|max:150',
+            'brand_select' => 'required',
+            'company_select' => 'required',
+            'bus_state' => 'required',
+            'model' => 'min:3|max:150',
+            'prod_year' => 'required|date',
+            'engine' => 'min:3|max:150',
+            'engine_num' => 'min:3|max:150',
             'fuel' => 'min:3|max:150',
             'chassis' => 'min:3|max:150',
             'chassis_num' => 'min:3|max:150',

@@ -3,6 +3,7 @@
     <div class="text-dark order-2 order-md-1">
         <span class="text-muted fw-bold me-1">{{ date('Y') }}©</span>
         <a href="#" rel="noopener noreferrer" target="_blank" class="text-gray-800 text-hover-primary">Buses and Company</a>
+        <a href="#" rel="noopener noreferrer" target="_blank" class="text-gray-800 text-hover-primary">by Afonso Sousa</a>
     </div>
     <!--end::Copyright-->
     <!--begin::Menu-->

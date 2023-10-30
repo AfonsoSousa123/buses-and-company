@@ -125,9 +125,9 @@
                                 <!--begin::Col-->
                                 <div class="col-xxl-12">
                                     <!--begin::Row-->
-                                    <div class="row">
+                                    <div class="row g-8 mb-8">
                                         <!--begin::Col-->
-                                        <div class="col-lg-2">
+                                        <div class="col-lg-4">
                                             <label class="fs-6 form-label fw-bolder text-dark">{{ __('State') }}</label>
                                             <!--begin::Select-->
                                             <select
@@ -171,7 +171,7 @@
 {{--                                        </div>--}}
 {{--                                        <!--end::Col-->--}}
                                         <!--begin::Col-->
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-8">
                                             <label class="fs-6 form-label fw-bolder text-dark">Data</label>
 
                                             <div class="d-flex flex-row align-items-center">
@@ -202,8 +202,12 @@
                                             </div>
                                         </div>
                                         <!--end::Col-->
+                                    </div>
+                                    <!--end::Row-->
+                                    <!--begin::Row-->
+                                    <div class="row g-8 mb-8">
                                         <!--begin::Col-->
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-6">
                                             <div class="fv-row mb-9">
                                                 <!--begin::Label-->
                                                 <label for="brand" class="fs-6 fw-bold mb-2">{{ __('Brand') }}</label>
@@ -235,7 +239,7 @@
                                         </div>
                                         <!--end::Col-->
                                         <!--begin::Col-->
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-6">
                                             <div class="fv-row mb-9">
                                                 <!--begin::Label-->
                                                 <label for="company" class="fs-6 fw-bold mb-2">{{ __('Company') }}</label>

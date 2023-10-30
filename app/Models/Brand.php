@@ -13,6 +13,7 @@ class Brand extends Model
     protected $fillable = [
         'uuid',
         'name',
+        'short',
         'owner',
         'password',
         'begin_year',
