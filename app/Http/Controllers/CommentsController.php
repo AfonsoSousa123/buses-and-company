@@ -29,7 +29,7 @@ class CommentsController extends Controller
 
     public function destroy(Post $post)
     {
-        dd($comment);
+//        dd($comment);
         $del = Comment::findOrFail($comment->id);
 
         $del->delete();

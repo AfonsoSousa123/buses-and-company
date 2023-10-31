@@ -8,51 +8,51 @@
 @endsection
 
 {{--Exemplo de toolbar com conteúdo de exemplo--}}
-@section('toolbar')
-    <!--begin::Page title-->
-    <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-        <!--begin::Title-->
-        <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">Por Levantar</h1>
-        <!--end::Title-->
-        <!--begin::Separator-->
-        <span class="h-20px border-gray-200 border-start mx-4"></span>
-        <!--end::Separator-->
-        <!--begin::Breadcrumb-->
-        <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-            <!--begin::Item-->
-            <li class="breadcrumb-item text-muted">
-                <a href="{{ route('dashboard') }}" class="text-muted text-hover-primary">Dashboard</a>
-            </li>
-            <!--end::Item-->
-            <!--begin::Item-->
-            <li class="breadcrumb-item">
-                <span class="bullet bg-gray-200 w-5px h-2px"></span>
-            </li>
-            <!--end::Item-->
-            <!--begin::Item-->
-            <li class="breadcrumb-item text-muted">Requerimentos</li>
-            <!--end::Item-->
-            <!--begin::Item-->
-            <li class="breadcrumb-item">
-                <span class="bullet bg-gray-200 w-5px h-2px"></span>
-            </li>
-            <!--end::Item-->
-            <!--begin::Item-->
-            <li class="breadcrumb-item text-muted">Empréstimos</li>
-            <!--end::Item-->
-            <!--begin::Item-->
-            <li class="breadcrumb-item">
-                <span class="bullet bg-gray-200 w-5px h-2px"></span>
-            </li>
-            <!--end::Item-->
-            <!--begin::Item-->
-            <li class="breadcrumb-item text-dark">Por Levantar</li>
-            <!--end::Item-->
-        </ul>
-        <!--end::Breadcrumb-->
-    </div>
-    <!--end::Page title-->
-@endsection
+{{--@section('toolbar')--}}
+{{--    <!--begin::Page title-->--}}
+{{--    <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">--}}
+{{--        <!--begin::Title-->--}}
+{{--        <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">Por Levantar</h1>--}}
+{{--        <!--end::Title-->--}}
+{{--        <!--begin::Separator-->--}}
+{{--        <span class="h-20px border-gray-200 border-start mx-4"></span>--}}
+{{--        <!--end::Separator-->--}}
+{{--        <!--begin::Breadcrumb-->--}}
+{{--        <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">--}}
+{{--            <!--begin::Item-->--}}
+{{--            <li class="breadcrumb-item text-muted">--}}
+{{--                <a href="{{ route('dashboard') }}" class="text-muted text-hover-primary">Dashboard</a>--}}
+{{--            </li>--}}
+{{--            <!--end::Item-->--}}
+{{--            <!--begin::Item-->--}}
+{{--            <li class="breadcrumb-item">--}}
+{{--                <span class="bullet bg-gray-200 w-5px h-2px"></span>--}}
+{{--            </li>--}}
+{{--            <!--end::Item-->--}}
+{{--            <!--begin::Item-->--}}
+{{--            <li class="breadcrumb-item text-muted">Requerimentos</li>--}}
+{{--            <!--end::Item-->--}}
+{{--            <!--begin::Item-->--}}
+{{--            <li class="breadcrumb-item">--}}
+{{--                <span class="bullet bg-gray-200 w-5px h-2px"></span>--}}
+{{--            </li>--}}
+{{--            <!--end::Item-->--}}
+{{--            <!--begin::Item-->--}}
+{{--            <li class="breadcrumb-item text-muted">Empréstimos</li>--}}
+{{--            <!--end::Item-->--}}
+{{--            <!--begin::Item-->--}}
+{{--            <li class="breadcrumb-item">--}}
+{{--                <span class="bullet bg-gray-200 w-5px h-2px"></span>--}}
+{{--            </li>--}}
+{{--            <!--end::Item-->--}}
+{{--            <!--begin::Item-->--}}
+{{--            <li class="breadcrumb-item text-dark">Por Levantar</li>--}}
+{{--            <!--end::Item-->--}}
+{{--        </ul>--}}
+{{--        <!--end::Breadcrumb-->--}}
+{{--    </div>--}}
+{{--    <!--end::Page title-->--}}
+{{--@endsection--}}
 
 {{--Conteúdo dinâmico na página--}}
 @section('content')
@@ -106,7 +106,7 @@
 {{--                            <!--end:Action-->--}}
                             <!--begin:Action-->
                             <div class="d-flex align-items-center justify-content-start">
-                                <button type="submit" disabled id="search-submit-btn" class="btn btn-light-primary me-5">Pesquisa</button>
+                                <button type="submit" id="search-submit-btn" class="btn btn-light-primary me-5">Search</button>
                             </div>
                             <!--end:Action-->
                         </div>
@@ -148,31 +148,31 @@
                                             <!--end::Select-->
                                         </div>
                                         <!--end::Col-->
-{{--                                        <!--begin::Col-->--}}
-{{--                                        <div class="col-lg-2">--}}
-{{--                                            <label class="fs-6 form-label fw-bolder text-dark">ID</label>--}}
-{{--                                            <!--begin::Select-->--}}
-{{--                                            <select--}}
-{{--                                                class="form-select form-select-solid select2-hidden-accessible"--}}
-{{--                                                name="select_id"--}}
-{{--                                                data-control="select2"--}}
-{{--                                                data-placeholder="#"--}}
-{{--                                                data-hide-search="false"--}}
-{{--                                                tabindex="-1"--}}
-{{--                                                data-allow-clear="true"--}}
-{{--                                                aria-hidden="true"--}}
-{{--                                            >--}}
-{{--                                                <option></option>--}}
-{{--                                                @foreach ($ids as $id)--}}
-{{--                                                    <option value="{{ $id->id }}">#{{ $id->id }}</option>--}}
-{{--                                                @endforeach--}}
-{{--                                            </select>--}}
-{{--                                            <!--end::Select-->--}}
-{{--                                        </div>--}}
-{{--                                        <!--end::Col-->--}}
+                                        <!--begin::Col-->
+                                        <div class="col-lg-2">
+                                            <label class="fs-6 form-label fw-bolder text-dark">ID</label>
+                                            <!--begin::Select-->
+                                            <select
+                                                class="form-select form-select-solid select2-hidden-accessible"
+                                                name="select_id"
+                                                data-control="select2"
+                                                data-placeholder="#"
+                                                data-hide-search="false"
+                                                tabindex="-1"
+                                                data-allow-clear="true"
+                                                aria-hidden="true"
+                                            >
+                                                <option></option>
+                                                @foreach ($ids as $id)
+                                                    <option value="{{ $id->id }}">#{{ $id->id }}</option>
+                                                @endforeach
+                                            </select>
+                                            <!--end::Select-->
+                                        </div>
+                                        <!--end::Col-->
                                         <!--begin::Col-->
                                         <div class="col-lg-8">
-                                            <label class="fs-6 form-label fw-bolder text-dark">Data</label>
+                                            <label class="fs-6 form-label fw-bolder text-dark">Date</label>
 
                                             <div class="d-flex flex-row align-items-center">
                                                 <!--begin::datePicker-->
@@ -193,10 +193,8 @@
                                                     tabindex="-1"
                                                     aria-hidden="true"
                                                 >
-                                                    <option value="data_requerimento">Data Requerimento</option>
-                                                    <option value="data_levantamento">Data Levantamento</option>
-                                                    <option value="data_prev_dev">Data prevista Devolução</option>
-                                                    <option value="data_devolucao">Data Devolução</option>
+                                                    <option value="prod_year">Production Year</option>
+                                                    <option value="created_at">Created At</option>
                                                 </select>
                                                 <!--end::Select-->
                                             </div>
@@ -226,7 +224,7 @@
                                                         >
                                                             <option></option>
                                                             @foreach ($brands as $brand)
-                                                                <option value="{{ $brand->name }}">
+                                                                <option value="{{ $brand->id }}">
                                                                     {{ $brand->name }}
                                                                 </option>
                                                             @endforeach
@@ -258,7 +256,7 @@
                                                         >
                                                             <option></option>
                                                             @foreach ($companies as $company)
-                                                                <option value="{{ $company->name }}">
+                                                                <option value="{{ $company->id }}">
                                                                     {{ $company->name }}
                                                                 </option>
                                                             @endforeach
@@ -347,91 +345,99 @@
                                 <!--end::Head-->
                                 <!--begin::Body-->
                                 <tbody class="fs-6">
-                                @foreach ($buses as $bus)
-                                    <tr class="odd">
-                                        <!--begin::Licence Plate-->
-                                        <td class="text-start align-center mw-30px">
-    {{--                                   <a href="{{ route('emprestimos-show', $bus->id ) }}" class="mb-1 text-gray-800 text-hover-primary">--}}
-                                            {{ $bus->licence_plate }}
-    {{--                                   </a>--}}
-                                        </td>
-                                        <!--end::Licence Plate-->
-                                        <td class="text-start align-center mw-30px">
-                                            {{ $bus->brand_id == null ? '' : $bus->brand->name }}
-                                        </td>
-                                        <!--begin::Model-->
-                                        <td class="text-start align-center">
-                                            {{ $bus->model == null ? "Undefined" : $bus->model }}
-                                        </td>
-                                        <!--end::Model-->
-                                        <!--begin::Prod Year-->
-                                        <td data-order="20-12-2021T00:00:00+00:00" class="sorting_1 text-start">
-                                            {{ $bus->prod_year == null ? '' : Str::toDate($bus->prod_year) }}
-                                        </td>
-                                        <!--end::Prod Year-->
-                                        <!--begin::Company-->
-                                        <td class="text-start">
-                                            {{ $bus->company_id == null ? '' : $bus->company->name}}
-                                        </td>
-                                        <!--end::Company-->
-                                        <!--begin::State-->
-                                        <td class="text-start">
-                                            @switch ($bus->state_id)
-                                                @case (1)
-                                                    <span class="badge badge-{{ $bus->state->class }} fw-bolder px-4 py-3">{{ $bus->state->name }}</span>
-                                                    @break
-                                                @case (7)
-                                                    <span class="badge badge-{{ $bus->state->class }} text-dark fw-bolder px-4 py-3">{{ $bus->state->name }}</span>
-                                                    @break
-                                                @default
-                                                    <span class="badge badge-info fw-bolder px-4 py-3">{{ __('Undefined') }}</span>
-                                                    @break
-                                            @endswitch
-                                        </td>
-                                        <!--end::State-->
-                                        <!--begin::Fuel-->
-                                        <td data-order="20-12-2021T00:00:00+00:00" class="sorting_1 text-start">
-                                            {{ $bus->fuel }}
-                                        </td>
-                                        <!--end::Fuel-->
-{{--                                        <td class="text-start {{ Auth::user()->hasPermission('manage-buses') == false ? 'd-none' : '' }}">--}}
-                                        <td class="text-start">
-                                            <div class="d-flex justify-content-end flex-shrink-0">
-                                                <a
-                                                    href="{{ route('buses-edit', $bus->id ) }}"
-                                                    class="btn btn-icon btn-bg-white bg-hover-secondary me-1"
-                                                    data-bs-toggle="tooltip"
-                                                    data-bs-placement="top"
-                                                    title="{{ __('Edit Bus') }}"
-                                                >
-                                                    <!--begin::Svg Icon-->
-                                                    <i class="fas fa-edit text-success" style="font-size: 18px"></i>
-                                                    <!--end::Svg Icon-->
-                                                </a>
-
-                                                <form method="post" id="buses-delete" action="{{ route('buses-delete', $bus->id) }}">
-                                                    @method('DELETE')
-                                                    @csrf
-
+                                    @foreach ($buses as $bus)
+                                        <tr class="odd">
+                                            <!--begin::Licence Plate-->
+                                            <td class="text-start align-center mw-30px">
+        {{--                                   <a href="{{ route('emprestimos-show', $bus->id ) }}" class="mb-1 text-gray-800 text-hover-primary">--}}
+                                                {{ $bus->licence_plate }}
+        {{--                                   </a>--}}
+                                            </td>
+                                            <!--end::Licence Plate-->
+                                            <td class="text-start align-center mw-30px">
+                                                {{ $bus->brand_id == null ? '' : $bus->brand->name }}
+                                            </td>
+                                            <!--begin::Model-->
+                                            <td class="text-start align-center">
+                                                {{ $bus->model == null ? "Undefined" : $bus->model }}
+                                            </td>
+                                            <!--end::Model-->
+                                            <!--begin::Prod Year-->
+                                            <td data-order="20-12-2021T00:00:00+00:00" class="sorting_1 text-start">
+                                                {{ $bus->prod_year == null ? '' : Str::toDate($bus->prod_year) }}
+                                            </td>
+                                            <!--end::Prod Year-->
+                                            <!--begin::Company-->
+                                            <td class="text-start">
+                                                {{ $bus->company_id == null ? '' : $bus->company->name}}
+                                            </td>
+                                            <!--end::Company-->
+                                            <!--begin::State-->
+                                            <td class="text-start">
+                                                @switch ($bus->state_id)
+                                                    @case (1)
+                                                        <span class="badge badge-{{ $bus->state->class }} fw-bolder px-4 py-3">{{ $bus->state->name }}</span>
+                                                        @break
+                                                    @case (2)
+                                                        <span class="badge badge-{{ $bus->state->class }} fw-bolder px-4 py-3">{{ $bus->state->name }}</span>
+                                                        @break
+                                                    @case (3)
+                                                        <span class="badge badge-{{ $bus->state->class }} fw-bolder px-4 py-3">{{ $bus->state->name }}</span>
+                                                        @break
+                                                    @case (4)
+                                                        <span class="badge badge-{{ $bus->state->class }} fw-bolder px-4 py-3">{{ $bus->state->name }}</span>
+                                                        @break
+                                                    @case (5)
+                                                        <span class="badge badge-{{ $bus->state->class }} fw-bolder px-4 py-3">{{ $bus->state->name }}</span>
+                                                        @break
+                                                    @default
+                                                        <span class="badge badge-info fw-bolder px-4 py-3">{{ __('Undefined') }}</span>
+                                                        @break
+                                                @endswitch
+                                            </td>
+                                            <!--end::State-->
+                                            <!--begin::Fuel-->
+                                            <td data-order="20-12-2021T00:00:00+00:00" class="sorting_1 text-start">
+                                                {{ $bus->fuel }}
+                                            </td>
+                                            <!--end::Fuel-->
+    {{--                                        <td class="text-start {{ Auth::user()->hasPermission('manage-buses') == false ? 'd-none' : '' }}">--}}
+                                            <td class="text-start">
+                                                <div class="d-flex justify-content-end flex-shrink-0">
                                                     <a
-                                                        role="button"
-                                                        type="submit"
-                                                        class="btn btn-icon btn-bg-white bg-hover-secondary"
-                                                        data-kt-busesmanager-table-filter="delete_row"
+                                                        href="{{ route('buses-edit', $bus->id ) }}"
+                                                        class="btn btn-icon btn-bg-white bg-hover-secondary me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
-                                                        title="{{ __('Delete Bus') }}"
+                                                        title="{{ __('Edit Bus') }}"
                                                     >
                                                         <!--begin::Svg Icon-->
-                                                        <i class="fas fa-trash-alt text-danger" style="font-size: 18px"></i>
+                                                        <i class="fas fa-edit text-success" style="font-size: 18px"></i>
                                                         <!--end::Svg Icon-->
                                                     </a>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
 
-                                @endforeach
+                                                    <form method="post" id="buses-delete" action="{{ route('buses-delete', $bus->id) }}">
+                                                        @method('DELETE')
+                                                        @csrf
+
+                                                        <a
+                                                            role="button"
+                                                            type="submit"
+                                                            class="btn btn-icon btn-bg-white bg-hover-secondary"
+                                                            data-kt-busesmanager-table-filter="delete_row"
+                                                            data-bs-toggle="tooltip"
+                                                            data-bs-placement="top"
+                                                            title="{{ __('Delete Bus') }}"
+                                                        >
+                                                            <!--begin::Svg Icon-->
+                                                            <i class="fas fa-trash-alt text-danger" style="font-size: 18px"></i>
+                                                            <!--end::Svg Icon-->
+                                                        </a>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                                 <!--end::Body-->
                             </table>

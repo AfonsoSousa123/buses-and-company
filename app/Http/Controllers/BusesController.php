@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BusSearchRequest;
 use App\Http\Requests\BusStoreRequest;
+use App\Http\Requests\BusUpdateRequest;
 use App\Models\Brand;
 use App\Models\Bus;
 use App\Models\Company;
@@ -10,6 +12,7 @@ use App\Models\State;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class BusesController extends Controller
@@ -26,30 +29,84 @@ class BusesController extends Controller
         $selectStates = State::latest()->get();
         $states = State::latest()->get();
         $images = Media::latest()->get();
+        $ids = Bus::select('id')->get();
 
-        return view('buses.buses-list', compact('buses', 'brands', 'companies', 'selectStates', 'states', 'images'));
+        return view(
+            'buses.buses-list',
+            compact(
+                'buses',
+                'brands',
+                'companies',
+                'selectStates',
+                'states',
+                'images',
+                'ids')
+        );
     }
 
     /**
      * Search for the resource.
      *
      */
-    public function search()
+    public function search(BusSearchRequest $request)
     {
-        $b = request('b');
-        if($b != "") {
-            $buses = Bus::where("Matricula", 'LIKE', '%' .$b. '%')
-            ->orwhere("Marca", 'LIKE', '%' .$b. '%')
-            ->orwhere("Modelo", 'LIKE', '%' .$b. '%')
-            ->orwhere("Empresa", 'LIKE', '%' .$b. '%')
-            ->get();
+        DB::connection()->enableQueryLog();
+//        $states = State::whereIn('id', [1, 2, 4, 5, 6, 7])->get();
+        $brands = Brand::latest()->get();
+        $companies = Company::latest()->get();
+        $selectStates = State::latest()->get();
+        $states = State::latest()->get();
+        $images = Media::latest()->get();
+        $ids = Bus::select('id')->get();
+        $buses = Bus::query();
+        $searchString = $request->field;
 
-            if(count($buses) > 0)
-                return view('buses.buses-list', compact('buses'))->withDetails($buses)->withQuery($b);
-
-        }else{
-            return view('buses.buses-list')->withMessage("Não foi encontrado nenhum Autocarro com esse nome!");
+        if ($request->filled('field')) {
+            $buses->where('licence_plate', $searchString)
+                ->orWhere('model', $searchString);
         }
+        if ($request->filled('state')) {
+            $buses->where('state_id', $request->state);
+        }
+        if ($request->filled('select_id')) {
+            $buses->where('id', $request->select_id);
+        }
+        if ($request->filled('brand_select_search')) {
+            $buses->where('brand_id', $request->brand_select_search);
+        }
+        if ($request->filled('company_select_search')) {
+            $buses->where('company_id', $request->company_select_search);
+        }
+        if ($request->filled('field_date')) {
+            switch ($request->select_date) {
+                case ('created_at'):
+                    $created_at = Carbon::createFromFormat('d, M Y', $request->field_date);
+                    $buses->where('created_at','LIKE', '%'.$created_at->format('Y-m-d').'%');
+                    break;
+                case ('prod_year'):
+                    $prod_year = Carbon::createFromFormat('d, M Y', $request->field_date);
+                    $buses->where('prod_year','=',  $prod_year->format('Y-m-d'));
+                    break;
+            }
+        }
+
+        $busesResult = $buses->paginate(15);
+
+//        $queries = DB::getQueryLog();
+//        dd($queries, $busesResult);
+        return view(
+            'buses.buses-list', [
+                'buses' => $busesResult,
+            ], compact(
+                'buses',
+                'states',
+                'companies',
+                'selectStates',
+                'images',
+                'brands',
+                'ids'
+            )
+        );
     }
 
     /**
@@ -120,9 +177,10 @@ class BusesController extends Controller
      * Update the specified resource in storage.
      *
      */
-    public function update(Request $request, $buses)
+    public function update(BusUpdateRequest $request, $id)
     {
-        $buses = Bus::find($buses);
+        $buses = Bus::findOrFail($id);
+
         $buses->user_id = auth()->id();
         $buses->Matricula = request('Matricula');
         $buses->Marca = request('Marca');
