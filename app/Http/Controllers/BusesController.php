@@ -62,8 +62,8 @@ class BusesController extends Controller
         $searchString = $request->field;
 
         if ($request->filled('field')) {
-            $buses->where('licence_plate', $searchString)
-                ->orWhere('model', $searchString);
+            $buses->where('licence_plate', 'LIKE', '%'.$searchString.'%')
+                ->orWhere('model', 'LIKE', '%'.$searchString.'%');
         }
         if ($request->filled('state')) {
             $buses->where('state_id', $request->state);
@@ -90,7 +90,7 @@ class BusesController extends Controller
             }
         }
 
-        $busesResult = $buses->paginate(15);
+        $busesResult = $buses->latest()->paginate(15);
 
 //        $queries = DB::getQueryLog();
 //        dd($queries, $busesResult);

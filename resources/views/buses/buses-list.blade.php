@@ -454,10 +454,6 @@
             </div>
             <!--end::Card-->
             <!--end::Table-->
-
-{{--            <!--begin::Modal - New Emprestimo-->--}}
-{{--            @include('buses.buses-create')--}}
-{{--            <!--end::Modal - New Emprestimo-->--}}
         </div>
         <!--end::Container-->
 

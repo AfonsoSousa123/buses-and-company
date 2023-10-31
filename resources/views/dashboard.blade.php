@@ -12,12 +12,12 @@
                 <div class="w-100 bg-white rounded shadow-sm p-10 p-lg-15 mx-auto">
 
                     <div class="flex justify-center">
-                        <h1> This is the Dashboard</h1>
+                        <h1></h1>
                         <!--begin::Overlay-->
-                        <a class="d-block overlay" data-fslightbox="lightbox-basic" href="assets/media/stock/900x600/23.jpg">
+                        <a class="d-block overlay" data-fslightbox="lightbox-basic" href="{{ asset('assets/media/buses/017-MA-42-72.jpg') }}">
                             <!--begin::Image-->
-                            <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px"
-                                 style="background-image:url('assets/media/stock/900x600/23.jpg')">
+                            <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-800px"
+                                 style="background-image:url('assets/media/buses/017-MA-42-72.jpg')">
                             </div>
                             <!--end::Image-->
 
