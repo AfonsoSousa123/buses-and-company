@@ -32,7 +32,7 @@ class BusesController extends Controller
         $ids = Bus::select('id')->get();
 
         return view(
-            'buses.buses-list',
+            'buses.list',
             compact(
                 'buses',
                 'brands',
@@ -95,7 +95,7 @@ class BusesController extends Controller
 //        $queries = DB::getQueryLog();
 //        dd($queries, $busesResult);
         return view(
-            'buses.buses-list', [
+            'buses.list', [
                 'buses' => $busesResult,
             ], compact(
                 'buses',
@@ -125,6 +125,7 @@ class BusesController extends Controller
         // Cria o Empréstimo
         $bus = Bus::create([
             'licence_plate' => $request->licence_plate,
+            'old_licence_plate' => $request->old_licence_plate,
             'user_id' => Auth::user()->id,
             'brand_id' => $request->brand_select,
             'company_id' => $request->company_select,
@@ -152,12 +153,39 @@ class BusesController extends Controller
     }
 
     /**
+     * History page for the Buses
+     *
+     */
+    public function history()
+    {
+        $buses = Bus::latest()->paginate(15);
+        $brands = Brand::latest()->get();
+        $companies = Company::latest()->get();
+        $selectStates = State::latest()->get();
+        $states = State::latest()->get();
+        $images = Media::latest()->get();
+        $ids = Bus::select('id')->get();
+
+        return view(
+            'buses.history',
+            compact(
+                'buses',
+                'brands',
+                'companies',
+                'selectStates',
+                'states',
+                'images',
+                'ids')
+        );
+    }
+
+    /**
      * Display the specified resource.
      *
      */
     public function show(Bus $bus)
     {
-        return view('buses.show_Buses', compact('bus'));
+        return view('buses.show', compact('bus'));
     }
 
     /**
@@ -170,7 +198,7 @@ class BusesController extends Controller
     {
         $bus = Bus::findOrFail($id);
 
-        return view('buses.edit_Buses')->withBuses($bus);
+        return view('buses.edit')->withBuses($bus);
     }
 
     /**
@@ -179,44 +207,90 @@ class BusesController extends Controller
      */
     public function update(BusUpdateRequest $request, $id)
     {
-        $buses = Bus::findOrFail($id);
+        $bus = Bus::findOrFail($id);
 
-        $buses->user_id = auth()->id();
-        $buses->Matricula = request('Matricula');
-        $buses->Marca = request('Marca');
-        $buses->Ano_Producao = request('Ano_prod');
-        $buses->Empresa = request('Empresa');
-        $buses->Modelo = request('Modelo');
-        $buses->Imagem = request('Imagem');
-        $buses->Motor = request('Motor');
-        $buses->Num_Motor = request('Num_Motor');
-        $buses->Combustivel = request('Combustivel');
-        $buses->Carrocaria = request('Carrocaria');
-        $buses->Num_Chassis = request('Num_Chassis');
-        $buses->Lotacao = request('Lotacao');
-        $buses->Comprimento = request('Comprimento');
-        $buses->Largura = request('Largura');
-        $buses->Altura = request('Altura');
-        $buses->Dist_entre_eixos = request('Dist_entre_eixos');
-        $buses->Peso_bruto = request('Peso_bruto');
-        $buses->Descricao = request('Descricao');
+        if ($bus) {
+            // History Update
+//            ActionBusHistory::create([
+//                'bus_id' => $bus->id,
+//                'user_id' => Auth::user()->id,
+//                'action_id' => 2,
+//            ]);
 
-        // Save it to the database
-
-        $buses->save();
-
-        return redirect('/buses')->withMessage(__('Bus successfully updated!'));
+            return redirect(route('buses-list'))->with('success', __('Bus successfully Updated!'));
+        } else {
+            return redirect(url()->previous())->with('error', __('There was an error!'));
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
      */
-    public function destroy(Bus $bus)
+    public function destroy($id)
     {
-        $del = Bus::findOrFail($bus->id);
-        $del->delete();
+        $bus = Bus::findOrFail($id)->delete();
 
-        return back()->withMessage(__('Bus successfully deleted!'));
+        if ($bus) {
+            // History Delete
+//            ActionBusHistory::create([
+//                'bus_id' => $bus->id,
+//                'user_id' => Auth::user()->id,
+//                'action_id' => 3,
+//            ]);
+
+            return redirect(route('buses-list'))->with('success', __('Bus successfully Deleted!'));
+        } else {
+            return redirect(url()->previous())->with('error', __('There was an error!'));
+        }
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     */
+    public function trash()
+    {
+        $buses = Bus::latest()->paginate(15);
+        $brands = Brand::latest()->get();
+        $companies = Company::latest()->get();
+        $selectStates = State::latest()->get();
+        $states = State::latest()->get();
+        $images = Media::latest()->get();
+        $ids = Bus::select('id')->get();
+
+        return view(
+            'buses.trash',
+            compact(
+                'buses',
+                'brands',
+                'companies',
+                'selectStates',
+                'states',
+                'images',
+                'ids')
+        );
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     */
+    public function restore($id)
+    {
+        $bus = Bus::findOrFail($id)->restore();
+
+        if ($bus) {
+            // History Restore
+//            ActionBusHistory::create([
+//                'bus_id' => $bus->id,
+//                'user_id' => Auth::user()->id,
+//                'action_id' => 4,
+//            ]);
+
+            return redirect(route('buses-restore'))->with('success', __('Bus successfully Restored!'));
+        } else {
+            return redirect(url()->previous())->with('error', __('There was an error!'));
+        }
     }
 }

@@ -14,7 +14,7 @@
                     </span>
                     <!--end::Svg Icon-->
                 </span>
-                <span class="menu-title">Dashboard</span>
+                <span class="menu-title">{{ __('Dashboard') }}</span>
             </a>
         </div>
 {{--        @permission('view-events')--}}
@@ -41,7 +41,7 @@
                             <span class="menu-icon">
                                 <i class="fas fa-th-list fs-4"></i>
                             </span>
-                            <span class="menu-title">Lista</span>
+                            <span class="menu-title">{{ __('List') }}</span>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -49,7 +49,7 @@
                             <span class="menu-icon">
                                 <i class="fas fa-history fs-4"></i>
                             </span>
-                            <span class="menu-title">Histórico</span>
+                            <span class="menu-title">{{ __('History') }}</span>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -57,13 +57,107 @@
                             <span class="menu-icon">
                                 <i class="far fa-trash-alt fs-4"></i>
                             </span>
-                            <span class="menu-title">Reciclagem</span>
+                            <span class="menu-title">{{ __('Trash') }}</span>
                         </a>
                     </div>
                 </div>
             </div>
 {{--        @endpermission--}}
 {{--        @permission('view-images')--}}
+        <div class="menu-item">
+            <div class="menu-content">
+                <div class="separator mx-1"></div>
+            </div>
+        </div>
+        <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ (request()->is('brands')) ? 'hover show' : '' }}">
+                <span class="menu-link">
+                    <span class="menu-icon">
+                        <!--begin::Svg Icon | path: icons/duotone/Interface/Lock.svg-->
+                        <span class="svg-icon svg-icon-2">
+                            <i class="fa-solid fa-copyright fs-4"></i>
+                        </span>
+                        <!--end::Svg Icon-->
+                    </span>
+                    <span class="menu-title">{{ __('Brands') }}</span>
+                    <span class="menu-arrow"></span>
+                </span>
+            <div class="menu-sub menu-sub-accordion menu-active-bg">
+                <div class="menu-item">
+                    <a class="menu-link {{ (request()->is('brands')) || (request()->is('brands/search')) ? 'active' : '' }}" href="{{ route('brands-list') }}">
+                            <span class="menu-icon">
+                                <i class="fas fa-th-list fs-4"></i>
+                            </span>
+                        <span class="menu-title">{{ __('List') }}</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link" href="{{ route('brands-history') }}">
+                            <span class="menu-icon">
+                                <i class="fas fa-history fs-4"></i>
+                            </span>
+                        <span class="menu-title">{{ __('History') }}</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link {{ (request()->is('/trash')) ? 'active' : '' }}" href="{{ route('brands-trash') }}">
+                            <span class="menu-icon">
+                                <i class="far fa-trash-alt fs-4"></i>
+                            </span>
+                        <span class="menu-title">{{ __('Trash') }}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{--        @endpermission--}}
+        {{--        @permission('view-images')--}}
+
+        <div class="menu-item">
+            <div class="menu-content">
+                <div class="separator mx-1"></div>
+            </div>
+        </div>
+        <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ (request()->is('companies')) ? 'hover show' : '' }}">
+                <span class="menu-link">
+                    <span class="menu-icon">
+                        <!--begin::Svg Icon | path: icons/duotone/Interface/Lock.svg-->
+                        <span class="svg-icon svg-icon-2">
+                            <i class="fa-solid fa-building fs-4"></i>
+                        </span>
+                        <!--end::Svg Icon-->
+                    </span>
+                    <span class="menu-title">{{ __('Companies') }}</span>
+                    <span class="menu-arrow"></span>
+                </span>
+            <div class="menu-sub menu-sub-accordion menu-active-bg">
+                <div class="menu-item">
+                    <a class="menu-link {{ (request()->is('companies')) || (request()->is('companies/search')) ? 'active' : '' }}" href="{{ route('companies-list') }}">
+                            <span class="menu-icon">
+                                <i class="fas fa-th-list fs-4"></i>
+                            </span>
+                        <span class="menu-title">{{ __('List') }}</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link" href="{{ route('companies-history') }}">
+                            <span class="menu-icon">
+                                <i class="fas fa-history fs-4"></i>
+                            </span>
+                        <span class="menu-title">{{ __('History') }}</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link {{ (request()->is('/trash')) ? 'active' : '' }}" href="{{ route('companies-trash') }}">
+                            <span class="menu-icon">
+                                <i class="far fa-trash-alt fs-4"></i>
+                            </span>
+                        <span class="menu-title">{{ __('Trash') }}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{--        @endpermission--}}
+        {{--        @permission('view-images')--}}
+
         <div class="menu-item">
             <div class="menu-content">
                 <div class="separator mx-1"></div>

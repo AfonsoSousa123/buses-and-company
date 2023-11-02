@@ -18,6 +18,7 @@ class BusStoreRequest extends FormRequest
     {
         return [
             'licence_plate' => 'Licence Plate',
+            'old_licence_plate' => 'Old Licence Plate',
             'brand_select' => 'Brand',
             'model' => 'Model',
             'bus_state' => 'State',
@@ -47,6 +48,7 @@ class BusStoreRequest extends FormRequest
     {
         return [
             'licence_plate' => 'required|min:3|max:150',
+            'old_licence_plate' => 'nullable|min:3|max:150',
             'brand_select' => 'required',
             'company_select' => 'required',
             'bus_state' => 'required',
