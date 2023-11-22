@@ -66,7 +66,7 @@
             <!--begin::Search-->
             <div class="card mb-7">
                 <!--begin::Card body-->
-                <form method="GET" action="{{ route('buses-search') }}" id="buses-search">
+                <form method="GET" action="{{ route('brands-search') }}" id="brands-search">
                     <div class="card-header">
                         <!--begin::Compact form-->
                         <div class="card-title">
@@ -149,28 +149,6 @@
                                         </div>
                                         <!--end::Col-->
                                         <!--begin::Col-->
-                                        <div class="col-lg-2">
-                                            <label class="fs-6 form-label fw-bolder text-dark">ID</label>
-                                            <!--begin::Select-->
-                                            <select
-                                                class="form-select form-select-solid select2-hidden-accessible"
-                                                name="select_id"
-                                                data-control="select2"
-                                                data-placeholder="#"
-                                                data-hide-search="false"
-                                                tabindex="-1"
-                                                data-allow-clear="true"
-                                                aria-hidden="true"
-                                            >
-                                                <option></option>
-                                                @foreach ($ids as $id)
-                                                    <option value="{{ $id->id }}">#{{ $id->id }}</option>
-                                                @endforeach
-                                            </select>
-                                            <!--end::Select-->
-                                        </div>
-                                        <!--end::Col-->
-                                        <!--begin::Col-->
                                         <div class="col-lg-8">
                                             <label class="fs-6 form-label fw-bolder text-dark">Date</label>
 
@@ -236,38 +214,6 @@
                                             <!--end::State group-->
                                         </div>
                                         <!--end::Col-->
-                                        <!--begin::Col-->
-                                        <div class="col-lg-6">
-                                            <div class="fv-row mb-9">
-                                                <!--begin::Label-->
-                                                <label for="company" class="fs-6 fw-bold mb-2">{{ __('Company') }}</label>
-                                                <!--end::Label-->
-                                                <!--begin::Input-->
-                                                <div class="input-group input-group-solid">
-                                                    <div class="flex-grow-1">
-                                                        <select
-                                                            class="form-select form-select-solid"
-                                                            id="company_select_search"
-                                                            name="company_select_search"
-                                                            data-control="select2"
-                                                            data-placeholder="Pesquise uma Companhia"
-                                                            data-allow-clear="true"
-                                                            data-hide-search="false"
-                                                        >
-                                                            <option></option>
-                                                            @foreach ($companies as $company)
-                                                                <option value="{{ $company->id }}">
-                                                                    {{ $company->name }}
-                                                                </option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <!--end::Input-->
-                                            </div>
-                                            <!--end::State group-->
-                                        </div>
-                                        <!--end::Col-->
                                     </div>
                                     <!--end::Row-->
                                 </div>
@@ -287,7 +233,7 @@
                     <!--begin::Button-->
 {{--                    <div class="d-flex align-items-center {{ Auth::user()->hasPermission('create-emprestimos') == false ? 'd-none' : '' }}">--}}
                     <div class="d-flex align-items-center">
-                        <button class="btn btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target="#kt_modal_add_buses">
+                        <button class="btn btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target="#kt_modal_add_brands">
                             <!--begin::Svg Icon | path: assets/media/icons/duotune/general/gen035.svg-->
                             <span class="svg-icon svg-icon-muted svg-icon-2hx">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -297,7 +243,7 @@
                                 </svg>
                             </span>
                             <!--end::Svg Icon-->
-                            {{ __('Create Bus') }}
+                            {{ __('Create Brand') }}
                         </button>
                     </div>
                     <!--end::Button-->
@@ -307,7 +253,7 @@
                         <div class="d-flex my-0">
                             <div class="d-flex flex-wrap align-items-center my-1">
                                 <div class="badge badge-lg badge-primary">
-                                    {{ $buses->count() }} {{ __('of') }} {{ $buses->total() }} {{ __('Buses') }}
+                                    {{ $brands->count() }} {{ __('of') }} {{ $brands->total() }} {{ __('Brands') }}
                                 </div>
                             </div>
                         </div>
@@ -331,8 +277,8 @@
                                 <!--begin::Head-->
                                 <thead class="fs-7 text-gray-400 align-center text-uppercase">
                                 <tr>
-                                    <th class="mw-30px sorting text-start" tabindex="0" rowspan="1" colspan="1" style="width: 0px;">{{ __('Licence Plate') }}</th>
-                                    <th class="mw-30px sorting text-start" tabindex="0" rowspan="1" colspan="1" style="width: 0px;">{{ __('Brand') }}</th>
+                                    <th class="mw-30px sorting text-start" tabindex="0" rowspan="1" colspan="1" style="width: 0px;">{{ __('Brand Name') }}</th>
+                                    <th class="mw-30px sorting text-start" tabindex="0" rowspan="1" colspan="1" style="width: 0px;">{{ __('') }}</th>
                                     <th class="min-w-180px sorting text-start" tabindex="0" rowspan="1" colspan="1" style="width: 0px;">{{ __('Model') }}</th>
                                     <th class="min-w-90px sorting text-start" tabindex="0" rowspan="1" colspan="1" style="width: 0px;">{{ __('Prod Year') }}</th>
                                     <th class="min-w-90px sorting text-start" tabindex="0" rowspan="1" colspan="1" style="width: 0px;" aria-sort="descending">{{ __('Company') }}</th>
@@ -345,50 +291,50 @@
                                 <!--end::Head-->
                                 <!--begin::Body-->
                                 <tbody class="fs-6">
-                                    @foreach ($buses as $bus)
+                                    @foreach ($brands as $brand)
                                         <tr class="odd">
                                             <!--begin::Licence Plate-->
                                             <td class="text-start align-center mw-30px">
-        {{--                                   <a href="{{ route('emprestimos-show', $bus->id ) }}" class="mb-1 text-gray-800 text-hover-primary">--}}
-                                                {{ $bus->licence_plate }}
+        {{--                                   <a href="{{ route('emprestimos-show', $brand->id ) }}" class="mb-1 text-gray-800 text-hover-primary">--}}
+                                                {{ $brand->short == null ? 'Undefined' : $brand->short }}
         {{--                                   </a>--}}
                                             </td>
                                             <!--end::Licence Plate-->
                                             <td class="text-start align-center mw-30px">
-                                                {{ $bus->brand_id == null ? '' : $bus->brand->name }}
+                                                {{ $brand->name == null ? 'Undefined' : $brand->name }}
                                             </td>
                                             <!--begin::Model-->
                                             <td class="text-start align-center">
-                                                {{ $bus->model == null ? "Undefined" : $bus->model }}
+                                                {{ $brand->model == null ? 'Undefined' : $brand->model }}
                                             </td>
                                             <!--end::Model-->
                                             <!--begin::Prod Year-->
                                             <td data-order="20-12-2021T00:00:00+00:00" class="sorting_1 text-start">
-                                                {{ $bus->prod_year == null ? '' : Str::toDate($bus->prod_year) }}
+                                                {{ $brand->begin_year == null ? '' : Str::toDate($brand->begin_year) }}
                                             </td>
                                             <!--end::Prod Year-->
                                             <!--begin::Company-->
                                             <td class="text-start">
-                                                {{ $bus->company_id == null ? '' : $bus->company->name}}
+                                                {{ $brand->company_id == null ? '' : $brand->company->name}}
                                             </td>
                                             <!--end::Company-->
                                             <!--begin::State-->
                                             <td class="text-start">
-                                                @switch ($bus->state_id)
+                                                @switch ($brand->state_id)
                                                     @case (1)
-                                                        <span class="badge badge-{{ $bus->state->class }} fw-bolder px-4 py-3">{{ $bus->state->name }}</span>
+                                                        <span class="badge badge-{{ $brand->state->class }} fw-bolder px-4 py-3">{{ $brand->state->name }}</span>
                                                         @break
                                                     @case (2)
-                                                        <span class="badge badge-{{ $bus->state->class }} fw-bolder px-4 py-3">{{ $bus->state->name }}</span>
+                                                        <span class="badge badge-{{ $brand->state->class }} fw-bolder px-4 py-3">{{ $brand->state->name }}</span>
                                                         @break
                                                     @case (3)
-                                                        <span class="badge badge-{{ $bus->state->class }} fw-bolder px-4 py-3">{{ $bus->state->name }}</span>
+                                                        <span class="badge badge-{{ $brand->state->class }} fw-bolder px-4 py-3">{{ $brand->state->name }}</span>
                                                         @break
                                                     @case (4)
-                                                        <span class="badge badge-{{ $bus->state->class }} fw-bolder px-4 py-3">{{ $bus->state->name }}</span>
+                                                        <span class="badge badge-{{ $brand->state->class }} fw-bolder px-4 py-3">{{ $brand->state->name }}</span>
                                                         @break
                                                     @case (5)
-                                                        <span class="badge badge-{{ $bus->state->class }} fw-bolder px-4 py-3">{{ $bus->state->name }}</span>
+                                                        <span class="badge badge-{{ $brand->state->class }} fw-bolder px-4 py-3">{{ $brand->state->name }}</span>
                                                         @break
                                                     @default
                                                         <span class="badge badge-info fw-bolder px-4 py-3">{{ __('Undefined') }}</span>
@@ -398,14 +344,14 @@
                                             <!--end::State-->
                                             <!--begin::Fuel-->
                                             <td data-order="20-12-2021T00:00:00+00:00" class="sorting_1 text-start">
-                                                {{ $bus->fuel }}
+                                                {{ $brand->fuel }}
                                             </td>
                                             <!--end::Fuel-->
-    {{--                                        <td class="text-start {{ Auth::user()->hasPermission('manage-buses') == false ? 'd-none' : '' }}">--}}
+    {{--                                        <td class="text-start {{ Auth::user()->hasPermission('manage-brands') == false ? 'd-none' : '' }}">--}}
                                             <td class="text-start">
                                                 <div class="d-flex justify-content-end flex-shrink-0">
                                                     <a
-                                                        href="{{ route('buses-edit', $bus->id ) }}"
+                                                        href="{{ route('brands-edit', $brand->id ) }}"
                                                         class="btn btn-icon btn-bg-white bg-hover-secondary me-1"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
@@ -416,7 +362,7 @@
                                                         <!--end::Svg Icon-->
                                                     </a>
 
-                                                    <form method="post" id="buses-delete" action="{{ route('buses-delete', $bus->id) }}">
+                                                    <form method="post" id="brands-delete" action="{{ route('brands-delete', $brand->id) }}">
                                                         @method('DELETE')
                                                         @csrf
 
@@ -424,7 +370,7 @@
                                                             role="button"
                                                             type="submit"
                                                             class="btn btn-icon btn-bg-white bg-hover-secondary"
-                                                            data-kt-busesmanager-table-filter="delete_row"
+                                                            data-kt-brandsmanager-table-filter="delete_row"
                                                             data-bs-toggle="tooltip"
                                                             data-bs-placement="top"
                                                             title="{{ __('Delete Bus') }}"
@@ -444,7 +390,7 @@
                             <!--end::Table-->
 
                             <div class="d-flex justify-content-center">
-                                {!! $buses->links("pagination::bootstrap-4") !!}
+                                {!! $brands->links("pagination::bootstrap-4") !!}
                             </div>
                         </div>
                     </div>
@@ -457,7 +403,7 @@
         </div>
         <!--end::Container-->
 
-        @include('buses.buses-create')
+{{--        @include('brands.create')--}}
     </div>
     <!--end::Col-->
 @endsection
@@ -468,11 +414,11 @@
     @if ((Session::has('errors')))
         <script type="text/javascript">
             $(document).ready(function() {
-                $('#kt_add_buses_button').click();
+                $('#kt_add_brands_button').click();
             });
         </script>
     @endif
-    <script src="{{ asset('assets/js/bus_list.js') }}?v={{config('app.version_code')}}"></script>
+    <script src="{{ asset('assets/js/brand_list.js') }}?v={{config('app.version_code')}}"></script>
     <!--end::Page Vendors Javascript-->
     <!--begin::Page Custom Javascript(used by this page)-->
     <script src="{{ asset('assets/js/custom/pages/search/horizontal.js') }}?v={{config('app.version_code')}}"></script>
