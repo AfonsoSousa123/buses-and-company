@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
+use App\Models\Bus;
+use App\Models\Company;
+use App\Models\State;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class BrandsController extends Controller
 {
@@ -11,15 +16,18 @@ class BrandsController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $brands = Brand::latest()->paginate(15);
+        $selectStates = State::latest()->get();
+        $states = State::latest()->get();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return view(
+            'brands.list',
+            compact(
+                'brands',
+                'selectStates',
+                'states'
+                )
+        );
     }
 
     /**

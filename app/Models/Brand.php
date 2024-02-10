@@ -26,4 +26,13 @@ class Brand extends Model
         return $this->hasMany(Bus::class);
     }
 
+    public function state()
+    {
+        return $this->belongsTo(State::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
