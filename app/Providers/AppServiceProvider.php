@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
             setlocale(LC_TIME, 'Portuguese');
             Carbon::setLocale('pt');
 
-            return empty($date) ? $default : Carbon::parse($date)->formatLocalized('%m/%Y');
+            return empty($date) ? $default : Carbon::parse($date)->isoFormat('%m/%Y');
         });
 
         Str::macro('toDateAlt', function ($date, $default = 'Não Definida')
@@ -41,7 +41,7 @@ class AppServiceProvider extends ServiceProvider
             setlocale(LC_TIME, 'Portuguese');
             Carbon::setLocale('pt');
 
-            return empty($date) ? $default : Carbon::parse($date)->formatLocalized('%d de %b. de %Y');
+            return empty($date) ? $default : Carbon::parse($date)->isoFormat('%d de %b. de %Y');
         });
 
         Str::macro('formatBytes', function ($bytes, $precision = 2)
